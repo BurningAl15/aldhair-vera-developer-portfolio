@@ -19,16 +19,20 @@ import {
   docker,
   postgresql,
   unity,
+  threejs,
 
   masuno,
   makeItReal,
   globalTask,
   subterra,
 
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
+  quote,
+  blackjack,
+  foodRecipes,
+  frontend,
+  sabor,
+  voting,
+  landing,
 } from "../assets";
 
 export const navLinks = [
@@ -232,7 +236,73 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Blackjack",
+    description:
+      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+    tags: [
+      {
+        name: "javascript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "css",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "gh pages",
+        color: "red-text-gradient",
+      },
+    ],
+    image: blackjack,
+    preview_project_link: "https://burningal15.github.io/blackjack-js/",
+    source_code_link: "https://github.com/BurningAl15/blackjack-js",
+  },
+  {
+    name: "Sabor a Peru",
+    description:
+      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+    tags: [
+      {
+        name: "javascript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "css",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "gh pages",
+        color: "red-text-gradient",
+      },
+    ],
+    image: sabor,
+    preview_project_link: "https://burningal15.github.io/sabor_a_peru/",
+    source_code_link: "https://github.com/BurningAl15/sabor_a_peru",
+  },
+  {
+    name: "Cake N Coffee",
+    description:
+      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+    tags: [
+      {
+        name: "javascript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "css",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "gh pages",
+        color: "red-text-gradient",
+      },
+    ],
+    image: landing,
+    preview_project_link: "https://burningal15.github.io/CakeNCoffee-JS/",
+    source_code_link: "https://github.com/BurningAl15/CakeNCoffee-JS",
+  },
+  {
+    name: "Random Quote",
     description:
       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
     tags: [
@@ -241,21 +311,26 @@ const projects = [
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "json ",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "css",
         color: "pink-text-gradient",
       },
+      {
+        name: "Netlify",
+        color: "red-text-gradient",
+      },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: quote,
+    preview_project_link: "https://random-quotes-by-aldhair.netlify.app/",
+    source_code_link: "https://github.com/BurningAl15/fcc-random-quote",
   },
   {
-    name: "Job IT",
+    name: "Food Recipes",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
     tags: [
       {
         name: "react",
@@ -266,33 +341,43 @@ const projects = [
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "css",
         color: "pink-text-gradient",
       },
+      {
+        name: "gh pages",
+        color: "red-text-gradient",
+      },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: foodRecipes,
+    preview_project_link: "https://burningal15.github.io/RecipeApp/",
+    source_code_link: "https://github.com/BurningAl15/RecipeApp",
   },
   {
-    name: "Trip Guide",
+    name: "Ecommerce Frontend",
     description:
       "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
     tags: [
       {
-        name: "nextjs",
+        name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "restapi",
         color: "green-text-gradient",
       },
       {
         name: "css",
         color: "pink-text-gradient",
       },
+      {
+        name: "Netlify",
+        color: "red-text-gradient",
+      },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: frontend,
+    preview_project_link: "https://makeit-frontend-assesment.netlify.app/",
+    source_code_link: "https://github.com/BurningAl15/Assesment-frontend-retrieval-makeit",
   },
 ];
 
