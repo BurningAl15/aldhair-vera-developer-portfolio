@@ -8,6 +8,10 @@ import { slideIn } from "../utils/motion";
 
 
 const Contact = () => {
+  const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
+
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -33,8 +37,8 @@ const Contact = () => {
 
     emailjs
       .send(
-        process.env.VITE_APP_EMAILJS_SERVICE_ID,
-        process.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         {
           from_name: form.name,
           to_name: "Aldhair Vera Camacho",
@@ -42,7 +46,7 @@ const Contact = () => {
           to_email: "aldhairvera15@gmail.com",
           message: form.message,
         },
-        process.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        publicKey
       )
       .then(
         () => {
