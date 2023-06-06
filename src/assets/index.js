@@ -41,6 +41,8 @@ import voting from "./works/Voting.png";
 import landing from "./works/LandingCake.png";
 import tulum from "./works/Tulum.png";
 
+import sm_github from "./social Medias/Github.png";
+import sm_linkedin from "./social Medias/Linkedin.png";
 
 export {
   logo,
@@ -80,4 +82,6 @@ export {
   voting,
   landing,
   tulum,
+  sm_github,
+  sm_linkedin,
 };

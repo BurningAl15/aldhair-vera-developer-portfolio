@@ -34,6 +34,8 @@ import {
   voting,
   tulum,
   landing,
+  sm_github,
+  sm_linkedin,
 } from "../assets";
 
 export const navLinks = [
@@ -410,4 +412,15 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+const socialMedias = [
+  {
+    image: sm_github,
+    url: "https://github.com/BurningAl15"
+  },
+  {
+    image: sm_linkedin,
+    url: "https://www.linkedin.com/in/aldhairvera/"
+  }
+]
+
+export { services, technologies, experiences, testimonials, projects, socialMedias };
