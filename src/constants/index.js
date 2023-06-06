@@ -32,6 +32,7 @@ import {
   frontend,
   sabor,
   voting,
+  tulum,
   landing,
 } from "../assets";
 
@@ -43,6 +44,10 @@ export const navLinks = [
   {
     id: "work",
     title: "Work",
+  },
+  {
+    id: "projects",
+    title: "Projects",
   },
   {
     id: "contact",
@@ -146,10 +151,10 @@ const experiences = [
     iconBg: oldColor,
     date: "December 2020 - August 2021",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+      "Developing the layout and program FrontEnd for an e-commerce.",
+      "Developing the layout and program FrontEnd for a video-streaming app. (Orbem App)",
       "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "As FrontEnd, I was able to layout and program functionalities for the web apps by using laravel blade, SASS and JQuery."
     ],
   },
   {
@@ -173,9 +178,11 @@ const experiences = [
     date: "February 2022 - May 2022",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
+      "Developing the layout and program FrontEnd for a dashboard app with React.",
+      "Developing the layout and program FrontEnd for a landing page app with React.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
+      "As FrontEnd, I was able to layout and program whole features to modify a template (Materially) and apply hooks, filters, work with tables and cards, fetch data from some endpoints and work with a 7 members team to have clean, reusable and high quality code by applying good manners for React apps."
     ],
   },
   // {
@@ -199,10 +206,10 @@ const experiences = [
     iconBg: oldColor,
     date: "May 2022 - June 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Developing and maintaining the layout, add functionalities, make improvements, form validations, bring data from AWS lambdas, upload images and other types of media, create new views and join them to the product, fix bugs in front and backend, modify backend lambdas (NodeJS and Java) and deploy them, AWS to see S3, DynamoDB.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
+      "For FrontEnd I worked with React, Redux, React Query and Typescript"
     ],
   },
 ];
@@ -238,7 +245,7 @@ const projects = [
   {
     name: "Blackjack",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Web application that simulates a blackjack game with vanilla JS",
     tags: [
       {
         name: "javascript",
@@ -260,7 +267,7 @@ const projects = [
   {
     name: "Sabor a Peru",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Landing Page to layout a restaurant",
     tags: [
       {
         name: "javascript",
@@ -282,7 +289,7 @@ const projects = [
   {
     name: "Cake N Coffee",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Landing Page to layout a coffee",
     tags: [
       {
         name: "javascript",
@@ -302,9 +309,31 @@ const projects = [
     source_code_link: "https://github.com/BurningAl15/CakeNCoffee-JS",
   },
   {
+    name: "Tulum Mexico",
+    description:
+      "Landing Page to show a little about Tulum in Mexico",
+    tags: [
+      {
+        name: "javascript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "css",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Surge",
+        color: "red-text-gradient",
+      },
+    ],
+    image: tulum,
+    preview_project_link: "https://fundajs-aldhairvera.surge.sh/",
+    source_code_link: "https://github.com/BurningAl15/CakeNCoffee-JS",
+  },
+  {
     name: "Random Quote",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Web Application that randomly shows random quotes and fetch them from a simple Json, uses React",
     tags: [
       {
         name: "react",
@@ -330,7 +359,7 @@ const projects = [
   {
     name: "Food Recipes",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Web Application that gets food recipes and can search words to produce new results fetched from an API",
     tags: [
       {
         name: "react",
@@ -354,9 +383,9 @@ const projects = [
     source_code_link: "https://github.com/BurningAl15/RecipeApp",
   },
   {
-    name: "Ecommerce Frontend",
+    name: "Ecommerce FrontEnd",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Web Application that gets data from an API and shows data, the products simulate a limited time offer, after a specific time, you can't see their details",
     tags: [
       {
         name: "react",

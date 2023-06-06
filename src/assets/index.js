@@ -39,6 +39,8 @@ import frontend from "./works/Frontend-makeIt.png";
 import sabor from "./works/SaborAPeru.png";
 import voting from "./works/Voting.png";
 import landing from "./works/LandingCake.png";
+import tulum from "./works/Tulum.png";
+
 
 export {
   logo,
@@ -77,4 +79,5 @@ export {
   sabor,
   voting,
   landing,
+  tulum,
 };
