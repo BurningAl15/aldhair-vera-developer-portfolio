@@ -1,8 +1,8 @@
 import React from 'react'
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
-import {styles} from '../styles';
-import {ComputersCanvas} from './canvas';
+import { styles } from '../styles';
+import { ComputersCanvas } from './canvas';
 
 const Hero = () => {
   return (
@@ -20,8 +20,8 @@ const Hero = () => {
             Hi, I'm <span className='text-[#915EFF]'>Aldhair Vera</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop videogames, VR Experiences, <br className='sm:block hidden' />
-            web applications and mobile apps
+            I develop web applications, mobile apps, <br className='sm:block hidden' />
+            videogames and VR Experiences
           </p>
         </div>
       </div>

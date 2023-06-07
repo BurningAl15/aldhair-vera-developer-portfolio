@@ -1,12 +1,13 @@
-// import logo from "./logo/logo.svg";
 import logo from "./logo/logo-no-background.svg";
-// import logo from "./logo/logo-white.svg";
 
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
+import backend from "./about/BackendDev.png";
+import creator from "./about/ContentCreator.png";
+import mobile from "./about/MobileDev.png";
+import web from "./about/FrontEndDev.png";
+import gameDev from "./about/GameDev.png";
+
 import github from "./github.png";
+import preview from "./preview.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -23,15 +24,25 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import postgresql from "./tech/postgresql.png";
+import unity from "./tech/Unity.png";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
+import masuno from "./company/+1.png";
+import makeItReal from "./company/MakeItReal.png";
+import globalTask from "./company/GlobalTask.png";
+import subterra from "./company/Subterra.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import quote from "./works/RandomQuote.png";
+import blackjack from "./works/Blackjack.png";
+import foodRecipes from "./works/Food.png";
+import frontend from "./works/Frontend-makeIt.png";
+import sabor from "./works/SaborAPeru.png";
+import voting from "./works/Voting.png";
+import landing from "./works/LandingCake.png";
+import tulum from "./works/Tulum.png";
+
+import sm_github from "./social Medias/Github.png";
+import sm_linkedin from "./social Medias/Linkedin.png";
 
 export {
   logo,
@@ -39,7 +50,9 @@ export {
   creator,
   mobile,
   web,
+  gameDev,
   github,
+  preview,
   menu,
   close,
   css,
@@ -55,11 +68,20 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
-  carrent,
-  jobit,
-  tripguide,
+  postgresql,
+  unity,
+  globalTask,
+  masuno,
+  makeItReal,
+  subterra,
+  quote,
+  blackjack,
+  foodRecipes,
+  frontend,
+  sabor,
+  voting,
+  landing,
+  tulum,
+  sm_github,
+  sm_linkedin,
 };
