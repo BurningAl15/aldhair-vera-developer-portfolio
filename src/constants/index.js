@@ -414,10 +414,12 @@ const projects = [
 
 const socialMedias = [
   {
+    id: "social_media_github",
     image: sm_github,
     url: "https://github.com/BurningAl15"
   },
   {
+    id: "social_media_linkedIn",
     image: sm_linkedin,
     url: "https://www.linkedin.com/in/aldhairvera/"
   }

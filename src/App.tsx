@@ -19,10 +19,10 @@ const App = () => {
           <Contact/>
           <StarsCanvas/>
         </div>
-        {/* <div className="relative z-0">
+        <div className="relative z-0">
           <SocialMedia/>
           <Footer/>
-        </div> */}
+        </div>
       </div>
     </BrowserRouter>
   )
