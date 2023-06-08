@@ -45,16 +45,12 @@ const About = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-4xl leading-[30px]'
+        className='mt-4 text-secondary text-[17px] max-w-7xl leading-[30px]'
       >
-            I enjoy learning about new technologies in my free time and have passion in teaching and share my experiences with experienced or newbie developers too.
-            I consider myself a never ending learner, love to work in multidisciplinary teams because i know i can learn things from every person i met and apply what i learn in my projects.
-            "Programming gives pleasure to creative people"
-
         I am a skilled software developer with experience in TypeScript and
         Javascript, and expertise in frameworks like React and Express for
         web development, React Native for mobile development, and C# for Unity.
-        I love to learn, improve by practising and creating new projects.
+        I love to learn, improve by practising, teach to other people and create new projects.
         I'm a quick learner and collaborate closely with clients to
         create efficient, scalable, and user-friendly solutions that solve
         real-world problems. Let's work together to bring your ideas to life!
@@ -65,6 +61,13 @@ const About = () => {
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
       </div>
+
+      <motion.p
+        variants={fadeIn("", "", 0.1, 1)}
+        className='mt-5 text-secondary text-[24px] max-w-7xl leading-[30px] text-center'
+      >
+        "Programming gives pleasure to creative people"
+      </motion.p>
     </>
   );
 };
