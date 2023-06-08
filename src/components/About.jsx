@@ -45,8 +45,12 @@ const About = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
+        className='mt-4 text-secondary text-[17px] max-w-4xl leading-[30px]'
       >
+            I enjoy learning about new technologies in my free time and have passion in teaching and share my experiences with experienced or newbie developers too.
+            I consider myself a never ending learner, love to work in multidisciplinary teams because i know i can learn things from every person i met and apply what i learn in my projects.
+            "Programming gives pleasure to creative people"
+
         I am a skilled software developer with experience in TypeScript and
         Javascript, and expertise in frameworks like React and Express for
         web development, React Native for mobile development, and C# for Unity.

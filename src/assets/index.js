@@ -43,6 +43,9 @@ import tulum from "./works/Tulum.png";
 
 import sm_github from "./social Medias/Github.png";
 import sm_linkedin from "./social Medias/Linkedin.png";
+import sm_youtube from "./social Medias/Youtube.png";
+import sm_itchio from "./social Medias/ItchIo.png";
+
 
 export {
   logo,
@@ -84,4 +87,6 @@ export {
   tulum,
   sm_github,
   sm_linkedin,
+  sm_youtube,
+  sm_itchio,
 };

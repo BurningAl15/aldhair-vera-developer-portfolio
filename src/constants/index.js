@@ -36,6 +36,8 @@ import {
   landing,
   sm_github,
   sm_linkedin,
+  sm_youtube,
+  sm_itchio,
 } from "../assets";
 
 export const navLinks = [
@@ -416,13 +418,27 @@ const socialMedias = [
   {
     id: "social_media_github",
     image: sm_github,
-    url: "https://github.com/BurningAl15"
+    url: "https://github.com/BurningAl15",
+    title: "Github"
   },
   {
     id: "social_media_linkedIn",
     image: sm_linkedin,
-    url: "https://www.linkedin.com/in/aldhairvera/"
-  }
+    url: "https://www.linkedin.com/in/aldhairvera/",
+    title: "LinkedIn"
+  },
+  {
+    id: "social_media_youtube",
+    image: sm_youtube,
+    url: "https://www.youtube.com/channel/UCdcgOD_SQ9Pm1CyAC58-aZA",
+    title: "Youtube"
+  },
+  {
+    id: "social_media_itchio",
+    image: sm_itchio,
+    url: "https://fatcatgamestudio.itch.io/",
+    title: "Itch.io"
+  },
 ]
 
 export { services, technologies, experiences, testimonials, projects, socialMedias };
