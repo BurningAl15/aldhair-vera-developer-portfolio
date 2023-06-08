@@ -47,13 +47,12 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-7xl leading-[30px]'
       >
-        I am a skilled software developer with experience in TypeScript and
-        Javascript, and expertise in frameworks like React and Express for
-        web development, React Native for mobile development, and C# for Unity.
-        I love to learn, improve by practising, teach to other people and create new projects.
-        I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        I am a skilled software developer with experience in TypeScript and Javascript, and expertise in frameworks like React and Express for web development, React Native for mobile development, and C# for Unity.
+        <br className='sm:block hidden' />
+        I am a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. 
+        I love improve by practising and experiencing, teach to other people and create new projects.
+        <br className='sm:block hidden' />
+        Let's work together to bring your ideas to life!
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>
