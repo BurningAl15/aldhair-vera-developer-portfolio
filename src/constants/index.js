@@ -31,6 +31,7 @@ import {
   aldhaNote,
   studentManager,
   sabor,
+  pokedex,
   voting,
   tulum,
   landing,
@@ -427,10 +428,10 @@ const projects = [
         name: "bootstrap",
         color: "pink-text-gradient",
       },
-      // {
-      //   name: "Netlify",
-      //   color: "red-text-gradient",
-      // },
+      {
+        name: "Not deployed yet",
+        color: "red-text-gradient",
+      },
     ],
     image: foodya,
     preview_project_link:
@@ -453,10 +454,10 @@ const projects = [
       //   name: "",
       //   color: "pink-text-gradient",
       // },
-      // {
-      //   name: "Netlify",
-      //   color: "red-text-gradient",
-      // },
+      {
+        name: "Not deployed yet",
+        color: "red-text-gradient",
+      },
     ],
     image: aldhaNote,
     preview_project_link: "https://www.youtube.com/watch?v=XA4EZ8pANb0",
@@ -487,6 +488,32 @@ const projects = [
     image: studentManager,
     preview_project_link: "https://student-manager-test.netlify.app/",
     source_code_link: "https://github.com/BurningAl15/Students-Manager",
+  },
+  {
+    name: "Pokedex",
+    description:
+      "Pokedex made with react native expo using the PokeAPI to get data and AsyncStorage to save locally the favorites",
+    tags: [
+      {
+        name: "react native expo",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "api",
+        color: "green-text-gradient",
+      },
+      // {
+      //   name: "material-ui",
+      //   color: "pink-text-gradient",
+      // },
+      {
+        name: "expo - Not deployed yet",
+        color: "red-text-gradient",
+      },
+    ],
+    image: pokedex,
+    preview_project_link: "",
+    source_code_link: "https://github.com/BurningAl15/pokedexMobile",
   },
 ];
 

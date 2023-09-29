@@ -39,7 +39,7 @@ import frontend from "./works/Frontend-makeIt.png";
 import foodya from "./works/FoodYa.png";
 import aldhaNote from "./works/AldhaNote.png";
 import studentManager from "./works/Student-Manager.png";
-
+import pokedex from "./works/Pokedex.png";
 
 import sabor from "./works/SaborAPeru.png";
 import voting from "./works/Voting.png";
@@ -88,6 +88,7 @@ export {
   foodya,
   aldhaNote,
   studentManager,
+  pokedex,
   sabor,
   voting,
   landing,
