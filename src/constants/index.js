@@ -4,7 +4,6 @@ import {
   creator,
   web,
   gameDev,
-
   javascript,
   typescript,
   html,
@@ -20,16 +19,16 @@ import {
   postgresql,
   unity,
   threejs,
-
   masuno,
   makeItReal,
   globalTask,
   subterra,
-
   quote,
   blackjack,
   foodRecipes,
   frontend,
+  foodya,
+  aldhaNote,
   sabor,
   voting,
   tulum,
@@ -74,7 +73,7 @@ const services = [
   },
   {
     title: "Game Developer",
-    icon: gameDev
+    icon: gameDev,
   },
   {
     title: "Content Creator",
@@ -137,15 +136,15 @@ const technologies = [
   },
   {
     name: "unity",
-    icon: unity
-  }
+    icon: unity,
+  },
   // {
   //   name: "docker",
   //   icon: docker,
   // },
 ];
 
-const [oldColor, newColor] = ["#383E56", "#E6DEDD"]
+const [oldColor, newColor] = ["#383E56", "#E6DEDD"];
 
 const experiences = [
   {
@@ -158,7 +157,7 @@ const experiences = [
       "Developing the layout and program FrontEnd for an e-commerce.",
       "Developing the layout and program FrontEnd for a video-streaming app. (Orbem App)",
       "Implementing responsive design and ensuring cross-browser compatibility.",
-      "As FrontEnd, I was able to layout and program functionalities for the web apps by using laravel blade, SASS and JQuery."
+      "As FrontEnd, I was able to layout and program functionalities for the web apps by using laravel blade, SASS and JQuery.",
     ],
   },
   {
@@ -186,7 +185,7 @@ const experiences = [
       "Developing the layout and program FrontEnd for a landing page app with React.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Participating in code reviews and providing constructive feedback to other developers.",
-      "As FrontEnd, I was able to layout and program whole features to modify a template (Materially) and apply hooks, filters, work with tables and cards, fetch data from some endpoints and work with a 7 members team to have clean, reusable and high quality code by applying good manners for React apps."
+      "As FrontEnd, I was able to layout and program whole features to modify a template (Materially) and apply hooks, filters, work with tables and cards, fetch data from some endpoints and work with a 7 members team to have clean, reusable and high quality code by applying good manners for React apps.",
     ],
   },
   // {
@@ -202,7 +201,7 @@ const experiences = [
   //     "Participating in code reviews and providing constructive feedback to other developers.",
   //   ],
   // },
- 
+
   {
     title: "Full stack Developer",
     company_name: "Subterra",
@@ -213,7 +212,7 @@ const experiences = [
       "Developing and maintaining the layout, add functionalities, make improvements, form validations, bring data from AWS lambdas, upload images and other types of media, create new views and join them to the product, fix bugs in front and backend, modify backend lambdas (NodeJS and Java) and deploy them, AWS to see S3, DynamoDB.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Participating in code reviews and providing constructive feedback to other developers.",
-      "For FrontEnd I worked with React, Redux, React Query and Typescript"
+      "For FrontEnd I worked with React, Redux, React Query and Typescript",
     ],
   },
 ];
@@ -270,8 +269,7 @@ const projects = [
   },
   {
     name: "Sabor a Peru",
-    description:
-      "Landing Page to layout a restaurant",
+    description: "Landing Page to layout a restaurant",
     tags: [
       {
         name: "javascript",
@@ -292,8 +290,7 @@ const projects = [
   },
   {
     name: "Cake N Coffee",
-    description:
-      "Landing Page to layout a coffee",
+    description: "Landing Page to layout a coffee",
     tags: [
       {
         name: "javascript",
@@ -314,8 +311,7 @@ const projects = [
   },
   {
     name: "Tulum Mexico",
-    description:
-      "Landing Page to show a little about Tulum in Mexico",
+    description: "Landing Page to show a little about Tulum in Mexico",
     tags: [
       {
         name: "javascript",
@@ -410,7 +406,60 @@ const projects = [
     ],
     image: frontend,
     preview_project_link: "https://makeit-frontend-assesment.netlify.app/",
-    source_code_link: "https://github.com/BurningAl15/Assesment-frontend-retrieval-makeit",
+    source_code_link:
+      "https://github.com/BurningAl15/Assesment-frontend-retrieval-makeit",
+  },
+  {
+    name: "Food Ya!",
+    description:
+      "Full web app that makes a place where you can buy multiple foods of multiple restaurants",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "restapi",
+        color: "green-text-gradient",
+      },
+      {
+        name: "bootstrap",
+        color: "pink-text-gradient",
+      },
+      // {
+      //   name: "Netlify",
+      //   color: "red-text-gradient",
+      // },
+    ],
+    image: foodya,
+    preview_project_link:
+      "https://www.youtube.com/live/okLcs2-lf60?si=Cq27gpMacCmbepxy&t=1100",
+    source_code_link: "https://github.com/Lizethsuk/food-ya/tree/presentation",
+  },
+  {
+    name: "AldhaNote",
+    description: "Mobile app made with React Native",
+    tags: [
+      {
+        name: "react native",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "restapi",
+        color: "green-text-gradient",
+      },
+      // {
+      //   name: "",
+      //   color: "pink-text-gradient",
+      // },
+      // {
+      //   name: "Netlify",
+      //   color: "red-text-gradient",
+      // },
+    ],
+    image: aldhaNote,
+    preview_project_link: "https://www.youtube.com/watch?v=XA4EZ8pANb0",
+    source_code_link: "https://github.com/BurningAl15/personal-makeitreal/",
   },
 ];
 
@@ -419,26 +468,33 @@ const socialMedias = [
     id: "social_media_github",
     image: sm_github,
     url: "https://github.com/BurningAl15",
-    title: "Github"
+    title: "Github",
   },
   {
     id: "social_media_linkedIn",
     image: sm_linkedin,
     url: "https://www.linkedin.com/in/aldhairvera/",
-    title: "LinkedIn"
+    title: "LinkedIn",
   },
   {
     id: "social_media_youtube",
     image: sm_youtube,
     url: "https://www.youtube.com/channel/UCdcgOD_SQ9Pm1CyAC58-aZA",
-    title: "Youtube"
+    title: "Youtube",
   },
   {
     id: "social_media_itchio",
     image: sm_itchio,
     url: "https://fatcatgamestudio.itch.io/",
-    title: "Itch.io"
+    title: "Itch.io",
   },
-]
+];
 
-export { services, technologies, experiences, testimonials, projects, socialMedias };
+export {
+  services,
+  technologies,
+  experiences,
+  testimonials,
+  projects,
+  socialMedias,
+};

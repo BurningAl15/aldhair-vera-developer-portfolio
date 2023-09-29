@@ -36,6 +36,9 @@ import quote from "./works/RandomQuote.png";
 import blackjack from "./works/Blackjack.png";
 import foodRecipes from "./works/Food.png";
 import frontend from "./works/Frontend-makeIt.png";
+import foodya from "./works/FoodYa.png";
+import aldhaNote from "./works/AldhaNote.png";
+
 import sabor from "./works/SaborAPeru.png";
 import voting from "./works/Voting.png";
 import landing from "./works/LandingCake.png";
@@ -45,7 +48,6 @@ import sm_github from "./social Medias/Github.png";
 import sm_linkedin from "./social Medias/Linkedin.png";
 import sm_youtube from "./social Medias/Youtube.png";
 import sm_itchio from "./social Medias/ItchIo.png";
-
 
 export {
   logo,
@@ -81,6 +83,8 @@ export {
   blackjack,
   foodRecipes,
   frontend,
+  foodya,
+  aldhaNote,
   sabor,
   voting,
   landing,
