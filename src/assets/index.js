@@ -38,6 +38,8 @@ import foodRecipes from "./works/Food.png";
 import frontend from "./works/Frontend-makeIt.png";
 import foodya from "./works/FoodYa.png";
 import aldhaNote from "./works/AldhaNote.png";
+import studentManager from "./works/Student-Manager.png";
+
 
 import sabor from "./works/SaborAPeru.png";
 import voting from "./works/Voting.png";
@@ -85,6 +87,7 @@ export {
   frontend,
   foodya,
   aldhaNote,
+  studentManager,
   sabor,
   voting,
   landing,

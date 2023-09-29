@@ -29,6 +29,7 @@ import {
   frontend,
   foodya,
   aldhaNote,
+  studentManager,
   sabor,
   voting,
   tulum,
@@ -461,6 +462,32 @@ const projects = [
     preview_project_link: "https://www.youtube.com/watch?v=XA4EZ8pANb0",
     source_code_link: "https://github.com/BurningAl15/personal-makeitreal/",
   },
+  {
+    name: "Student Manager for Kodland",
+    description:
+      "Students Manager made to simplify the experience when I teach to my students and get all the data I need thinking in each group I give classes to",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "json",
+        color: "green-text-gradient",
+      },
+      {
+        name: "material-ui",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Netlify",
+        color: "red-text-gradient",
+      },
+    ],
+    image: studentManager,
+    preview_project_link: "https://student-manager-test.netlify.app/",
+    source_code_link: "https://github.com/BurningAl15/Students-Manager",
+  },
 ];
 
 const socialMedias = [
@@ -471,10 +498,16 @@ const socialMedias = [
     title: "Github",
   },
   {
+    id: "social__media_linkedIn",
+    image: sm_linkedin,
+    url: "https://www.linkedin.com/in/aldhairvera-web/",
+    title: "Full Stack LinkedIn",
+  },
+  {
     id: "social_media_linkedIn",
     image: sm_linkedin,
     url: "https://www.linkedin.com/in/aldhairvera/",
-    title: "LinkedIn",
+    title: "Game Dev LinkedIn",
   },
   {
     id: "social_media_youtube",
