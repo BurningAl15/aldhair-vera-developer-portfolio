@@ -9,73 +9,12 @@ import {
 import { useIsMobile } from "../../hooks/useIsMobile";
 import { motion } from "framer-motion";
 
-const Computers = () => {
-  const isMobile = useIsMobile();
-  const [isError, setIsError] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+const ComputerModel = () => {
   const [rotation, setRotation] = useState(0);
 
   useFrame((state) => {
-    if (!isMobile && !isError) {
-      setRotation((prev) => prev + 0.005);
-    }
+    setRotation((prev) => prev + 0.005);
   });
-
-  const handleInteraction = useCallback(() => {
-    setIsHovered(true);
-    setTimeout(() => setIsHovered(false), 1000);
-  }, []);
-
-  if (isMobile || isError) {
-    return (
-      <motion.div
-        className="w-full h-full flex items-center justify-center"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div
-          className="relative w-[280px] h-[280px] group cursor-pointer"
-          onClick={handleInteraction}
-        >
-          <motion.div
-            className="w-full h-full bg-tertiary rounded-xl flex items-center justify-center"
-            animate={{
-              scale: isHovered ? 1.05 : 1,
-              rotate: isHovered ? 5 : 0
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.div
-              className="text-white text-4xl"
-              animate={{
-                scale: isHovered ? 1.2 : 1,
-                rotate: isHovered ? 10 : 0
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              💻
-            </motion.div>
-          </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
-          <motion.div
-            className="absolute inset-0 bg-primary/5 rounded-xl"
-            animate={{
-              opacity: isHovered ? 1 : 0
-            }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.div
-            className="absolute -inset-1 bg-primary/20 rounded-xl blur opacity-0"
-            animate={{
-              opacity: isHovered ? 1 : 0
-            }}
-            transition={{ duration: 0.3 }}
-          />
-        </div>
-      </motion.div>
-    );
-  }
 
   return (
     <mesh>
@@ -112,45 +51,112 @@ const Computers = () => {
   );
 };
 
+const MobileFallback = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleInteraction = useCallback(() => {
+    setIsHovered(true);
+    setTimeout(() => setIsHovered(false), 1000);
+  }, []);
+
+  return (
+    <motion.div
+      className="w-full h-full flex items-center justify-center"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div
+        className="relative w-[280px] h-[280px] group cursor-pointer"
+        onClick={handleInteraction}
+      >
+        <motion.div
+          className="w-full h-full bg-tertiary rounded-xl flex items-center justify-center"
+          animate={{
+            scale: isHovered ? 1.05 : 1,
+            rotate: isHovered ? 5 : 0
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div
+            className="text-white text-4xl"
+            animate={{
+              scale: isHovered ? 1.2 : 1,
+              rotate: isHovered ? 10 : 0
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            💻
+          </motion.div>
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+        <motion.div
+          className="absolute inset-0 bg-primary/5 rounded-xl"
+          animate={{
+            opacity: isHovered ? 1 : 0
+          }}
+          transition={{ duration: 0.3 }}
+        />
+        <motion.div
+          className="absolute -inset-1 bg-primary/20 rounded-xl blur opacity-0"
+          animate={{
+            opacity: isHovered ? 1 : 0
+          }}
+          transition={{ duration: 0.3 }}
+        />
+      </div>
+    </motion.div>
+  );
+};
+
 const ComputersCanvas = () => {
   const isMobile = useIsMobile();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const { progress } = useProgress();
 
   useEffect(() => {
-    const canvas = document.createElement('canvas');
-    const gl = canvas.getContext('webgl', {
-      powerPreference: "high-performance",
-      failIfMajorPerformanceCaveat: true,
-      preserveDrawingBuffer: true,
-      alpha: true,
-      antialias: true
-    }) || canvas.getContext('experimental-webgl');
+    const checkWebGLSupport = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl', {
+          powerPreference: "high-performance",
+          failIfMajorPerformanceCaveat: true,
+          preserveDrawingBuffer: true,
+          alpha: true,
+          antialias: true
+        }) || canvas.getContext('experimental-webgl');
 
-    if (!gl) {
-      setIsError(true);
-      setIsLoading(false);
-      return;
-    }
+        if (!gl) {
+          setIsError(true);
+          setIsLoading(false);
+          return;
+        }
 
-    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-    if (debugInfo) {
-      const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-      const vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
-      console.log('WebGL Renderer:', renderer);
-      console.log('WebGL Vendor:', vendor);
-    }
+        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        if (debugInfo) {
+          const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+          const vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+          console.log('WebGL Renderer:', renderer);
+          console.log('WebGL Vendor:', vendor);
+        }
 
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+        const timer = setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
 
-    return () => clearTimeout(timer);
+        return () => clearTimeout(timer);
+      } catch (error) {
+        console.error('WebGL Support Check Error:', error);
+        setIsError(true);
+        setIsLoading(false);
+      }
+    };
+
+    checkWebGLSupport();
   }, []);
 
   if (isMobile || isError) {
-    return <Computers />;
+    return <MobileFallback />;
   }
 
   return (
@@ -184,11 +190,11 @@ const ComputersCanvas = () => {
             rotateSpeed={isMobile ? 0.5 : 1}
             touchRotateSpeed={0.5}
           />
-          <Computers />
+          <ComputerModel />
         </Suspense>
         <Preload all />
       </Canvas>
-      {(progress < 100 || isLoading) && (
+      {isLoading && (
         <motion.div
           className="absolute inset-0 flex items-center justify-center bg-primary/10 backdrop-blur-sm"
           initial={{ opacity: 0 }}
