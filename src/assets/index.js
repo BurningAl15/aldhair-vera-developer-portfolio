@@ -31,6 +31,7 @@ import masuno from "./company/+1.png";
 import makeItReal from "./company/MakeItReal.png";
 import globalTask from "./company/GlobalTask.png";
 import subterra from "./company/Subterra.png";
+import freelance from "./company/Freelance.png";
 
 import quote from "./works/RandomQuote.png";
 import blackjack from "./works/Blackjack.png";
@@ -81,6 +82,7 @@ export {
   masuno,
   makeItReal,
   subterra,
+  freelance,
   quote,
   blackjack,
   foodRecipes,

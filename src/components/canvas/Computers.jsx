@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import MobileBackground from "./MobileBackground";
 
 import CanvasLoader from "../Loader";
 
@@ -31,6 +32,7 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     // Add a listener for changes to the screen size
@@ -53,35 +55,42 @@ const ComputersCanvas = () => {
     };
   }, []);
 
-  return (
-    <Canvas
-      frameloop='demand'
-      shadows
-      dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{
-        preserveDrawingBuffer: true,
-        powerPreference: "high-performance",
-        antialias: false,
-        stencil: false,
-        depth: true
-      }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-          enableDamping={true}
-          dampingFactor={0.05}
-          rotateSpeed={isMobile ? 0.5 : 1}
-          touchRotateSpeed={0.5}
-        />
-        <Computers isMobile={isMobile} />
-      </Suspense>
+  if (isMobile && isError) {
+    return <MobileBackground />;
+  }
 
-      <Preload all />
-    </Canvas>
+  return (
+    <div className="w-full h-full">
+      <Canvas
+        frameloop='demand'
+        shadows
+        dpr={[1, 2]}
+        camera={{ position: [20, 3, 5], fov: 25 }}
+        gl={{
+          preserveDrawingBuffer: true,
+          powerPreference: "high-performance",
+          antialias: false,
+          stencil: false,
+          depth: true
+        }}
+        onError={() => setIsError(true)}
+      >
+        <Suspense fallback={null}>
+          <OrbitControls
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+            enableDamping={true}
+            dampingFactor={0.05}
+            rotateSpeed={isMobile ? 0.5 : 1}
+            touchRotateSpeed={0.5}
+          />
+          <Computers isMobile={isMobile} />
+        </Suspense>
+        <Preload all />
+      </Canvas>
+      {isError && <MobileBackground />}
+    </div>
   );
 };
 

@@ -2,11 +2,12 @@ import { useState, useRef, Suspense, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
+import MobileBackground from "./MobileBackground";
 
 const Stars = (props) => {
   const ref = useRef();
   const [sphere] = useState(() => {
-    const count = props.isMobile ? 2000 : 5000;
+    const count = props.isMobile ? 1000 : 5000;
     const positions = new Float32Array(count * 3);
     random.inSphere(positions, { radius: 1.2 });
     return positions;
@@ -36,6 +37,7 @@ const Stars = (props) => {
 
 const StarsCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
@@ -52,15 +54,22 @@ const StarsCanvas = () => {
     };
   }, []);
 
+  if (isMobile && isError) {
+    return <MobileBackground />;
+  }
+
   return (
     <div className='w-full h-auto absolute inset-0 z-[-1]'>
-      <Canvas camera={{ position: [0, 0, 1] }}>
+      <Canvas
+        camera={{ position: [0, 0, 1] }}
+        onError={() => setIsError(true)}
+      >
         <Suspense fallback={null}>
           <Stars isMobile={isMobile} />
         </Suspense>
-
         <Preload all />
       </Canvas>
+      {isError && <MobileBackground />}
     </div>
   );
 };

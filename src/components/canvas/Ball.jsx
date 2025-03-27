@@ -1,8 +1,9 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Canvas } from "@react-three/fiber";
 import {
   Decal, Float, OrbitControls, Preload, useTexture
 } from "@react-three/drei";
+import MobileBackground from "./MobileBackground";
 
 import CanvasLoader from "../Loader";
 
@@ -34,31 +35,48 @@ const Ball = (props) => {
 }
 
 const BallCanvas = ({ icon }) => {
-  return (
-    <Canvas
-      frameloop='demand'
-      dpr={[1, 2]}
-      gl={{
-        preserveDrawingBuffer: true,
-        powerPreference: "high-performance",
-        antialias: false,
-        stencil: false,
-        depth: true
-      }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          enableDamping={true}
-          dampingFactor={0.05}
-          rotateSpeed={0.5}
-          touchRotateSpeed={0.5}
-        />
-        <Ball imgUrl={icon} />
-      </Suspense>
+  const [isError, setIsError] = useState(false);
 
-      <Preload all />
-    </Canvas>
+  if (isError) {
+    return (
+      <div className="w-28 h-28 bg-tertiary rounded-full flex items-center justify-center">
+        <img src={icon} alt="technology" className="w-16 h-16 object-contain" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-28 h-28">
+      <Canvas
+        frameloop='demand'
+        dpr={[1, 2]}
+        gl={{
+          preserveDrawingBuffer: true,
+          powerPreference: "high-performance",
+          antialias: false,
+          stencil: false,
+          depth: true
+        }}
+        onError={() => setIsError(true)}
+      >
+        <Suspense fallback={null}>
+          <OrbitControls
+            enableZoom={false}
+            enableDamping={true}
+            dampingFactor={0.05}
+            rotateSpeed={0.5}
+            touchRotateSpeed={0.5}
+          />
+          <Ball imgUrl={icon} />
+        </Suspense>
+        <Preload all />
+      </Canvas>
+      {isError && (
+        <div className="w-28 h-28 bg-tertiary rounded-full flex items-center justify-center">
+          <img src={icon} alt="technology" className="w-16 h-16 object-contain" />
+        </div>
+      )}
+    </div>
   );
 };
 
