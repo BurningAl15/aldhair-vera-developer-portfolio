@@ -113,8 +113,11 @@ const ComputersCanvas = () => {
   const isMobile = useIsMobile();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [dpr, setDpr] = useState([1, 2]);
 
   useEffect(() => {
+    let timer;
+
     const checkWebGLSupport = () => {
       try {
         const canvas = document.createElement('canvas');
@@ -140,11 +143,21 @@ const ComputersCanvas = () => {
           console.log('WebGL Vendor:', vendor);
         }
 
-        const timer = setTimeout(() => {
+        // adjust dpr based on device pixel ratio and mobile flag
+        try {
+          const devicePixelRatio = window.devicePixelRatio || 1;
+          if (isMobile) {
+            setDpr([1, Math.min(1.25, devicePixelRatio)]);
+          } else {
+            setDpr([1, Math.min(2, devicePixelRatio)]);
+          }
+        } catch (e) {
+          setDpr([1, 1]);
+        }
+
+        timer = setTimeout(() => {
           setIsLoading(false);
         }, 1000);
-
-        return () => clearTimeout(timer);
       } catch (error) {
         console.error('WebGL Support Check Error:', error);
         setIsError(true);
@@ -153,7 +166,13 @@ const ComputersCanvas = () => {
     };
 
     checkWebGLSupport();
-  }, []);
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [isMobile]);
 
   if (isMobile || isError) {
     return <MobileFallback />;
@@ -164,7 +183,7 @@ const ComputersCanvas = () => {
       <Canvas
         frameloop="demand"
         shadows
-        dpr={[1, 2]}
+        dpr={dpr}
         camera={{ position: [20, 3, 5], fov: 25 }}
         gl={{
           preserveDrawingBuffer: true,

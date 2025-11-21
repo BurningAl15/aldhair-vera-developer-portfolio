@@ -41,6 +41,7 @@ import foodya from "./works/FoodYa.png";
 import aldhaNote from "./works/AldhaNote.png";
 import studentManager from "./works/Student-Manager.png";
 import pokedex from "./works/Pokedex.png";
+import gameDevPortfolio from "./works/GameDevPortfolio.png";
 
 import sabor from "./works/SaborAPeru.png";
 import voting from "./works/Voting.png";
@@ -91,6 +92,7 @@ export {
   aldhaNote,
   studentManager,
   pokedex,
+  gameDevPortfolio,
   sabor,
   voting,
   landing,

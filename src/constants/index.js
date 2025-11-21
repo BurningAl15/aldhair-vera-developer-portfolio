@@ -33,6 +33,7 @@ import {
   studentManager,
   sabor,
   pokedex,
+  gameDevPortfolio,
   voting,
   tulum,
   landing,
@@ -511,8 +512,34 @@ const projects = [
       },
     ],
     image: pokedex,
-    preview_project_link: "",
+    // preview_project_link: "",
     source_code_link: "https://github.com/BurningAl15/pokedexMobile",
+  },
+  {
+    name: "Game Developer portfolio",
+    description:
+      "My Game/XR Developer portfolio made with NextJS and using packages like react-unity-webgl and a custom implementation to run also godot games inside the web app",
+    tags: [
+      {
+        name: "NextJS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Tailwind CSS",
+        color: "green-text-gradient",
+      },
+      // {
+      //   name: "material-ui",
+      //   color: "pink-text-gradient",
+      // },
+      {
+        name: "Netlify",
+        color: "red-text-gradient",
+      },
+    ],
+    image: gameDevPortfolio,
+    preview_project_link: "https://aldhairvera.netlify.app/",
+    // source_code_link: "",
   },
 ];
 

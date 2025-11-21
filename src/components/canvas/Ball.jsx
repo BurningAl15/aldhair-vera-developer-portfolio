@@ -138,6 +138,7 @@ const BallCanvas = ({ icon }) => {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [webglContext, setWebglContext] = useState(null);
+  const [dpr, setDpr] = useState([1, 2]);
 
   useEffect(() => {
     const checkWebGLSupport = () => {
@@ -182,6 +183,16 @@ const BallCanvas = ({ icon }) => {
     };
 
     checkWebGLSupport();
+    try {
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      if (isMobile) {
+        setDpr([1, Math.min(1.25, devicePixelRatio)]);
+      } else {
+        setDpr([1, Math.min(2, devicePixelRatio)]);
+      }
+    } catch (e) {
+      setDpr([1, 1]);
+    }
   }, []);
 
   if (isMobile || isError) {
@@ -193,7 +204,7 @@ const BallCanvas = ({ icon }) => {
       <Canvas
         frameloop="demand"
         shadows
-        dpr={[1, 2]}
+        dpr={dpr}
         camera={{ position: [20, 3, 5], fov: 25 }}
         gl={{
           preserveDrawingBuffer: true,
