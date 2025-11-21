@@ -35,5 +35,8 @@
   },
   "overrides": {
     "camera-controls": "^2.7.3"
+  },
+  "resolutions": {
+    "camera-controls": "^2.7.3"
   }
 }
