@@ -1,6 +1,6 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
-import { motion } from "framer-motion";
+import LazyMotion from "../utils/LazyMotion";
 
 import { styles } from "../styles";
 import { github, preview } from "../assets";
@@ -18,7 +18,7 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <LazyMotion type="div" variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
         tiltMaxAngleX={45}
         tiltMaxAngleY={45}
@@ -80,20 +80,21 @@ const ProjectCard = ({
           ))}
         </div>
       </Tilt>
-    </motion.div>
+    </LazyMotion>
   );
 };
 
 const Works = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <LazyMotion type="div" variants={textVariant()}>
         <p className={`${styles.sectionSubText} `}>My work</p>
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
-      </motion.div>
+      </LazyMotion>
 
       <div className="w-full flex">
-        <motion.p
+        <LazyMotion
+          type="p"
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-7xl leading-[30px]"
         >
@@ -102,7 +103,7 @@ const Works = () => {
           links to code repositories and live demos in it. It reflects my
           ability to solve complex problems, work with different technologies,
           and manage projects effectively.
-        </motion.p>
+        </LazyMotion>
       </div>
 
       <div className="mt-20 flex flex-wrap gap-7">

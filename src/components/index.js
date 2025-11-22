@@ -1,4 +1,6 @@
-import { BallCanvas, ComputersCanvas, StarsCanvas } from './canvas';
+// Central exports for UI components only. Avoid importing heavy canvas
+// components here so a general `import { ... } from 'components'` does not
+// pull `three` / `@react-three/*` into unrelated bundles.
 import Hero from './Hero';
 import Navbar from './Navbar';
 import About from './About';
@@ -19,9 +21,6 @@ export {
   Works,
   Feedbacks,
   Contact,
-  BallCanvas, 
-  ComputersCanvas, 
-  StarsCanvas,
   SocialMedia,
   Footer,
 }

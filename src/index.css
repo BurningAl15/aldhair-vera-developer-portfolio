@@ -132,6 +132,37 @@
   transform: translateZ(0);
 }
 
+/* simple bounce animation to replace small framer-motion usage in Hero */
+.bounce-dot {
+  display: inline-block;
+  width: 0.75rem;
+  /* 12px */
+  height: 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(170, 166, 195, 1);
+  /* matches --secondary */
+  margin-bottom: 0.25rem;
+  animation: hero-bounce 1.5s infinite;
+}
+
+@keyframes hero-bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(24px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 @keyframes mulShdSpin {
 
   0%,

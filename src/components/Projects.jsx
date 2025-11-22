@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import LazyMotion from "../utils/LazyMotion";
 import { Tilt } from "react-tilt";
 import { styles } from "../styles";
 import { github } from "../assets";
@@ -15,7 +15,8 @@ const ProjectCard = ({
     source_code_link,
 }) => {
     return (
-        <motion.div
+        <LazyMotion
+            type="div"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
@@ -84,7 +85,8 @@ const ProjectCard = ({
 const Projects = () => {
     return (
         <div className="w-full">
-            <motion.div
+            <LazyMotion
+                type="div"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
@@ -95,7 +97,8 @@ const Projects = () => {
                 <h2 className={styles.sectionHeadText}>Projects.</h2>
             </motion.div>
 
-            <motion.div
+            <LazyMotion
+                type="div"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
@@ -109,7 +112,8 @@ const Projects = () => {
                 effectively.
             </motion.div>
 
-            <motion.div
+            <LazyMotion
+                type="div"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
