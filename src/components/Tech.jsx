@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 
-import { BallCanvas } from "./canvas";
+// Import BallCanvas lazily from its module so the Tech chunk doesn't
+// statically pull the entire `./canvas` index and vendor libs.
+const BallCanvas = lazy(() => import('./canvas/Ball').then(m => ({ default: m.default || m.BallCanvas })))
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
 import LazyMount from './LazyMount'
@@ -14,7 +16,9 @@ const Tech = () => {
           {/* Only mount the heavy WebGL canvas when the icon is visible in viewport */}
           <LazyMount>
             <CanvasGate>
-              <BallCanvas icon={technology.icon} />
+              <Suspense fallback={null}>
+                <BallCanvas icon={technology.icon} />
+              </Suspense>
             </CanvasGate>
           </LazyMount>
         </div>

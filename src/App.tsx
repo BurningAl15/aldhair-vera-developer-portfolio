@@ -13,8 +13,9 @@ const Contact = lazy(() => import('./components/Contact'))
 const SocialMedia = lazy(() => import('./components/SocialMedia'))
 const Footer = lazy(() => import('./components/Footer'))
 
-// Lazy-load StarsCanvas from canvas module
-const StarsCanvas = lazy(() => import('./components/canvas').then(m => ({ default: m.StarsCanvas })))
+// Lazy-load StarsCanvas from its specific module to avoid bundling
+// the entire `./components/canvas` index (which imports all canvases).
+const StarsCanvas = lazy(() => import('./components/canvas/Stars').then(m => ({ default: m.default || m.StarsCanvas })))
 
 const App = () => {
   return (

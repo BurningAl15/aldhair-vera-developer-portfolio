@@ -7,11 +7,11 @@ const CanvasLoader = () => {
 
     useEffect(() => {
         let mounted = true
-        // Dynamic import will create a separate chunk for canvas components
-        import('./canvas')
+        // Dynamic import of the specific heavy canvas to avoid pulling
+        // all canvases (Ball, Stars, Computers) into one chunk.
+        import('./canvas/Computers')
             .then((mod) => {
-                // module exports named components; prefer ComputersCanvas if available
-                const Comp = mod.ComputersCanvas || mod.default || null
+                const Comp = mod.default || null
                 if (mounted && Comp) setCanvasComp(() => Comp)
             })
             .catch(() => {
