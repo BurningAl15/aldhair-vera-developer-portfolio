@@ -38,6 +38,8 @@ const ProjectCard = ({
                             <img
                                 src={preview}
                                 alt="Preview"
+                                loading="lazy"
+                                decoding="async"
                                 className="w-1/2 h-1/2 object-contain"
                             />
                         </div>
@@ -52,6 +54,8 @@ const ProjectCard = ({
                                 <img
                                     src={github}
                                     alt="github"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-1/2 h-1/2 object-contain"
                                 />
                             </div>

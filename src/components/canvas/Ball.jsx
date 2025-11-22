@@ -62,6 +62,9 @@ const BallModel = ({ icon }) => {
   );
 };
 
+// Add a very small ambient light in the canvas root to ensure decals/materials
+// are visible even if other lights are weak or missing in some scenes.
+
 const MobileFallback = ({ icon }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -137,7 +140,6 @@ const BallCanvas = ({ icon }) => {
   const isMobile = useIsMobile();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [webglContext, setWebglContext] = useState(null);
   const [dpr, setDpr] = useState([1, 2]);
 
   useEffect(() => {
@@ -168,7 +170,16 @@ const BallCanvas = ({ icon }) => {
           console.log('WebGL Vendor:', vendor);
         }
 
-        setWebglContext(gl);
+        // If we created a temporary context for detection, free it right away
+        // to avoid increasing the number of active WebGL contexts.
+        try {
+          const loseExt = gl.getExtension('WEBGL_lose_context') || gl.getExtension('MOZ_WEBGL_lose_context') || gl.getExtension('WEBKIT_WEBGL_lose_context');
+          if (loseExt && typeof loseExt.loseContext === 'function') {
+            loseExt.loseContext();
+          }
+        } catch (e) {
+          // ignore
+        }
 
         const timer = setTimeout(() => {
           setIsLoading(false);
@@ -207,7 +218,9 @@ const BallCanvas = ({ icon }) => {
         dpr={dpr}
         camera={{ position: [20, 3, 5], fov: 25 }}
         gl={{
-          preserveDrawingBuffer: true,
+          // preserveDrawingBuffer increases memory usage significantly;
+          // disable it to reduce memory pressure and avoid context loss.
+          preserveDrawingBuffer: false,
           powerPreference: "high-performance",
           antialias: false,
           stencil: false,
@@ -223,9 +236,23 @@ const BallCanvas = ({ icon }) => {
         }}
         onCreated={({ gl }) => {
           gl.setClearColor('#000000', 0);
+          // Attach DOM-level event listener for context loss so React doesn't warn
+          try {
+            if (gl && gl.domElement && typeof gl.domElement.addEventListener === 'function') {
+              const handler = (ev) => {
+                console.warn('WebGL context lost (DOM event) in BallCanvas', ev);
+                setIsError(true);
+              };
+              gl.domElement.addEventListener('webglcontextlost', handler, false);
+              // no removal here because canvas lifecycle is managed by r3f; when the canvas is removed the DOM node is removed too
+            }
+          } catch (e) {
+            // ignore
+          }
         }}
       >
         <Suspense fallback={null}>
+          <ambientLight intensity={0.25} />
           <OrbitControls
             enableZoom={false}
             maxPolarAngle={Math.PI / 2}

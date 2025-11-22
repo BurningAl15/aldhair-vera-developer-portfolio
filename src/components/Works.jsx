@@ -30,6 +30,8 @@ const ProjectCard = ({
           <img
             src={image}
             alt="project_image"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover rounded-2xl"
           />
 

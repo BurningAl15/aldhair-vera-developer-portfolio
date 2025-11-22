@@ -1,57 +1,73 @@
 import logo from "./logo/logo-no-background.svg";
 
-import backend from "./about/BackendDev.png";
-import creator from "./about/ContentCreator.png";
-import mobile from "./about/MobileDev.png";
-import web from "./about/FrontEndDev.png";
-import gameDev from "./about/GameDev.png";
+import backend from "./about/BackendDev.webp";
+import creator from "./about/ContentCreator.webp";
 
-import github from "./github.png";
-import preview from "./preview.png";
+import mobile from "./about/MobileDev.webp";
+import web from "./about/FrontEndDev.webp";
+
+import gameDev from "./about/GameDev.webp";
+import github from "./github.webp";
+
+import preview from "./preview.webp";
 import menu from "./menu.svg";
+
 import close from "./close.svg";
+import css from "./tech/css.webp";
 
-import css from "./tech/css.png";
-import docker from "./tech/docker.png";
-import figma from "./tech/figma.png";
-import git from "./tech/git.png";
-import html from "./tech/html.png";
-import javascript from "./tech/javascript.png";
-import mongodb from "./tech/mongodb.png";
-import nodejs from "./tech/nodejs.png";
-import reactjs from "./tech/reactjs.png";
-import redux from "./tech/redux.png";
-import tailwind from "./tech/tailwind.png";
-import typescript from "./tech/typescript.png";
+import docker from "./tech/docker.webp";
+import figma from "./tech/figma.webp";
+
+import git from "./tech/git.webp";
+import html from "./tech/html.webp";
+
+import javascript from "./tech/javascript.webp";
+import mongodb from "./tech/mongodb.webp";
+
+import nodejs from "./tech/nodejs.webp";
+import reactjs from "./tech/reactjs.webp";
+
+import redux from "./tech/redux.webp";
+import tailwind from "./tech/tailwind.webp";
+
+import typescript from "./tech/typescript.webp";
 import threejs from "./tech/threejs.svg";
-import postgresql from "./tech/postgresql.png";
-import unity from "./tech/Unity.png";
 
-import masuno from "./company/+1.png";
-import makeItReal from "./company/MakeItReal.png";
-import globalTask from "./company/GlobalTask.png";
-import subterra from "./company/Subterra.png";
-import freelance from "./company/Freelance.png";
+import postgresql from "./tech/postgresql.webp";
+import unity from "./tech/Unity.webp";
 
-import quote from "./works/RandomQuote.png";
-import blackjack from "./works/Blackjack.png";
-import foodRecipes from "./works/Food.png";
-import frontend from "./works/Frontend-makeIt.png";
-import foodya from "./works/FoodYa.png";
-import aldhaNote from "./works/AldhaNote.png";
-import studentManager from "./works/Student-Manager.png";
-import pokedex from "./works/Pokedex.png";
-import gameDevPortfolio from "./works/GameDevPortfolio.png";
+import masuno from "./company/+1.webp";
+import makeItReal from "./company/MakeItReal.webp";
 
-import sabor from "./works/SaborAPeru.png";
-import voting from "./works/Voting.png";
-import landing from "./works/LandingCake.png";
-import tulum from "./works/Tulum.png";
+import globalTask from "./company/GlobalTask.webp";
+import subterra from "./company/Subterra.webp";
 
-import sm_github from "./social Medias/Github.png";
-import sm_linkedin from "./social Medias/Linkedin.png";
-import sm_youtube from "./social Medias/Youtube.png";
-import sm_itchio from "./social Medias/ItchIo.png";
+import freelance from "./company/Freelance.webp";
+import quote from "./works/RandomQuote.webp";
+
+import blackjack from "./works/Blackjack.webp";
+import foodRecipes from "./works/Food.webp";
+
+import frontend from "./works/Frontend-makeIt.webp";
+import foodya from "./works/FoodYa.webp";
+
+import aldhaNote from "./works/AldhaNote.webp";
+import studentManager from "./works/Student-Manager.webp";
+
+import pokedex from "./works/Pokedex.webp";
+import gameDevPortfolio from "./works/GameDevPortfolio.webp";
+
+import sabor from "./works/SaborAPeru.webp";
+import voting from "./works/Voting.webp";
+
+import landing from "./works/LandingCake.webp";
+import tulum from "./works/Tulum.webp";
+
+import sm_github from "./social Medias/Github.webp";
+import sm_linkedin from "./social Medias/Linkedin.webp";
+
+import sm_youtube from "./social Medias/Youtube.webp";
+import sm_itchio from "./social Medias/ItchIo.webp";
 
 export {
   logo,

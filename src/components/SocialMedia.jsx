@@ -28,6 +28,8 @@ const SocialMediaCard = ({ index, image, url, title }) => (
           <img
             src={image}
             alt='web-development'
+            loading='lazy'
+            decoding='async'
             className='w-24 h-24 object-contain'
           />
         </div>

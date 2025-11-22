@@ -155,6 +155,16 @@ const ComputersCanvas = () => {
           setDpr([1, 1]);
         }
 
+        // If we created a temporary context for detection, free it right away
+        try {
+          const loseExt = gl.getExtension('WEBGL_lose_context') || gl.getExtension('MOZ_WEBGL_lose_context') || gl.getExtension('WEBKIT_WEBGL_lose_context');
+          if (loseExt && typeof loseExt.loseContext === 'function') {
+            loseExt.loseContext();
+          }
+        } catch (e) {
+          // ignore
+        }
+
         timer = setTimeout(() => {
           setIsLoading(false);
         }, 1000);
@@ -186,7 +196,8 @@ const ComputersCanvas = () => {
         dpr={dpr}
         camera={{ position: [20, 3, 5], fov: 25 }}
         gl={{
-          preserveDrawingBuffer: true,
+          // Do not preserve drawing buffer to reduce GPU/memory usage
+          preserveDrawingBuffer: false,
           powerPreference: "high-performance",
           antialias: false,
           stencil: false,
@@ -197,6 +208,20 @@ const ComputersCanvas = () => {
         onError={(error) => {
           console.error('Three.js Error:', error);
           setIsError(true);
+        }}
+        onCreated={({ gl }) => {
+          // Attach a DOM-level context lost listener to avoid React unknown-prop warnings
+          try {
+            if (gl && gl.domElement && typeof gl.domElement.addEventListener === 'function') {
+              const handler = (ev) => {
+                console.warn('WebGL context lost (DOM event) in ComputersCanvas', ev);
+                setIsError(true);
+              };
+              gl.domElement.addEventListener('webglcontextlost', handler, false);
+            }
+          } catch (e) {
+            // ignore
+          }
         }}
       >
         <Suspense fallback={null}>
@@ -209,6 +234,8 @@ const ComputersCanvas = () => {
             rotateSpeed={isMobile ? 0.5 : 1}
             touchRotateSpeed={0.5}
           />
+          {/* Add a small ambient light so models have base illumination */}
+          <ambientLight intensity={0.35} />
           <ComputerModel />
         </Suspense>
         <Preload all />
