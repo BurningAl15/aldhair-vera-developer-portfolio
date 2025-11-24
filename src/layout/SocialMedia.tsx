@@ -6,7 +6,14 @@ import { socialMedias } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const SocialMediaCard = ({ index, image, url, title }) => (
+interface SocialMediaCardProps {
+  index: number;
+  image: string;
+  url: string;
+  title: string;
+}
+
+const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ index, image, url, title }) => (
   <>
     <Tilt
       className='xs:w-[180px] w-full group relative'

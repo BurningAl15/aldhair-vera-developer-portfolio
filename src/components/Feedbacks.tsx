@@ -6,7 +6,13 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { testimonials } from "../constants";
 
-const FeedbackCard = ({
+import { Testimonial } from "../constants";
+
+interface FeedbackCardProps extends Testimonial {
+  index: number;
+}
+
+const FeedbackCard: React.FC<FeedbackCardProps> = ({
   index,
   testimonial,
   name,
@@ -43,7 +49,7 @@ const FeedbackCard = ({
         />
       </div>
     </div>
-  </motion.div>
+  </LazyMotion>
 );
 
 const Feedbacks = () => {

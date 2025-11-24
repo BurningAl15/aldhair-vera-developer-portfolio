@@ -1,12 +1,24 @@
 import React, { createContext, useContext, useRef, useState } from 'react'
 
-const CanvasPoolContext = createContext(null)
+interface CanvasPoolContextType {
+    requestSlot: () => Promise<() => void>;
+    releaseSlot: () => void;
+    active: number;
+    maxSlots: number;
+}
 
-export const CanvasPoolProvider = ({ children, maxSlots = 4 }) => {
+const CanvasPoolContext = createContext<CanvasPoolContextType | null>(null)
+
+interface CanvasPoolProviderProps {
+    children: React.ReactNode;
+    maxSlots?: number;
+}
+
+export const CanvasPoolProvider: React.FC<CanvasPoolProviderProps> = ({ children, maxSlots = 4 }) => {
     const [active, setActive] = useState(0)
-    const queueRef = useRef([])
+    const queueRef = useRef<Array<(release: () => void) => void>>([])
 
-    const requestSlot = () => {
+    const requestSlot = (): Promise<() => void> => {
         return new Promise((resolve) => {
             // If slot available, grant immediately
             setActive((curr) => {

@@ -1,7 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const LazyMount = ({ children, rootMargin = '200px', threshold = 0.01, unmountOnExit = true }) => {
-    const ref = useRef(null)
+interface LazyMountProps {
+    children: React.ReactNode;
+    rootMargin?: string;
+    threshold?: number | number[];
+    unmountOnExit?: boolean;
+}
+
+const LazyMount: React.FC<LazyMountProps> = ({ children, rootMargin = '200px', threshold = 0.01, unmountOnExit = true }) => {
+    const ref = useRef<HTMLDivElement>(null)
     const [visible, setVisible] = useState(false)
 
     useEffect(() => {

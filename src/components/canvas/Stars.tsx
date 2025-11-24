@@ -1,11 +1,17 @@
 import { useState, useRef, Suspense, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
+// @ts-ignore
 import * as random from "maath/random/dist/maath-random.esm";
 import MobileBackground from "./MobileBackground";
+import * as THREE from "three";
 
-const Stars = (props) => {
-  const ref = useRef();
+interface StarsProps {
+  isMobile: boolean;
+}
+
+const Stars: React.FC<StarsProps> = (props) => {
+  const ref = useRef<THREE.Points>(null);
   const [sphere] = useState(() => {
     const count = props.isMobile ? 1000 : 5000;
     const positions = new Float32Array(count * 3);
@@ -35,15 +41,15 @@ const Stars = (props) => {
   );
 };
 
-const StarsCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isError, setIsError] = useState(false);
+const StarsCanvas: React.FC = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
     setIsMobile(mediaQuery.matches);
 
-    const handleMediaQueryChange = (event) => {
+    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
     };
 

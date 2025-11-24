@@ -43,7 +43,12 @@ import {
   sm_itchio,
 } from "../assets";
 
-export const navLinks = [
+export interface NavLink {
+  id: string;
+  title: string;
+}
+
+export const navLinks: NavLink[] = [
   {
     id: "about",
     title: "About",
@@ -62,7 +67,12 @@ export const navLinks = [
   },
 ];
 
-const services = [
+export interface Service {
+  title: string;
+  icon: string;
+}
+
+const services: Service[] = [
   {
     title: "Full Stack Web Developer",
     icon: web,
@@ -85,7 +95,12 @@ const services = [
   },
 ];
 
-const technologies = [
+export interface Technology {
+  name: string;
+  icon: string;
+}
+
+const technologies: Technology[] = [
   {
     name: "HTML 5",
     icon: html,
@@ -150,7 +165,16 @@ const technologies = [
 
 const [oldColor, newColor] = ["#383E56", "#E6DEDD"];
 
-const experiences = [
+export interface Experience {
+  title: string;
+  company_name: string;
+  icon: string;
+  iconBg: string;
+  date: string;
+  points: string[];
+}
+
+const experiences: Experience[] = [
   {
     title: "Full Stack Developer",
     company_name: "Freelance",
@@ -219,7 +243,15 @@ const experiences = [
   },
 ];
 
-const testimonials = [
+export interface Testimonial {
+  testimonial: string;
+  name: string;
+  designation: string;
+  company: string;
+  image: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     testimonial:
       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
@@ -246,7 +278,21 @@ const testimonials = [
   },
 ];
 
-const projects = [
+export interface ProjectTag {
+  name: string;
+  color: string;
+}
+
+export interface Project {
+  name: string;
+  description: string;
+  tags: ProjectTag[];
+  image: string;
+  preview_project_link?: string;
+  source_code_link?: string;
+}
+
+const projects: Project[] = [
   {
     name: "Blackjack",
     description:
@@ -543,7 +589,14 @@ const projects = [
   },
 ];
 
-const socialMedias = [
+export interface SocialMedia {
+  id: string;
+  image: string;
+  url: string;
+  title: string;
+}
+
+const socialMedias: SocialMedia[] = [
   {
     id: "social_media_github",
     image: sm_github,

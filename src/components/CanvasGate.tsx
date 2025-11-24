@@ -1,10 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useCanvasPool } from './CanvasPool'
 
-const CanvasGate = ({ children, fallback = null }) => {
+interface CanvasGateProps {
+    children: React.ReactNode;
+    fallback?: React.ReactNode;
+}
+
+const CanvasGate: React.FC<CanvasGateProps> = ({ children, fallback = null }) => {
     const mountedRef = useRef(false)
     const [granted, setGranted] = useState(false)
-    const releaseRef = useRef(null)
+    const releaseRef = useRef<(() => void) | null>(null)
     const pool = useCanvasPool()
 
     useEffect(() => {
@@ -32,7 +37,7 @@ const CanvasGate = ({ children, fallback = null }) => {
         }
     }, [])
 
-    return granted ? <>{children}</> : fallback
+    return granted ? <>{children}</> : <>{fallback}</>
 }
 
 export default CanvasGate

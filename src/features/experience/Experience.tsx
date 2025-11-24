@@ -12,7 +12,13 @@ import { experiences } from "../../constants";
 import { SectionWrapper } from "../../hoc";
 import { textVariant } from "../../utils/motion";
 
-const ExperienceCard = ({ experience }) => {
+import { Experience as ExperienceType } from "../../constants";
+
+interface ExperienceCardProps {
+  experience: ExperienceType;
+}
+
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{

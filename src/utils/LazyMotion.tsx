@@ -4,8 +4,14 @@ import React, { useEffect, useState } from 'react'
 // the requested motion element (e.g. motion.div). If framer-motion
 // isn't available yet, falls back to a plain DOM element so the
 // UI remains functional without animations.
-const LazyMotion = ({ type = 'div', children, ...props }) => {
-    const [MotionEl, setMotionEl] = useState(null)
+interface LazyMotionProps {
+    type?: string;
+    children?: React.ReactNode;
+    [key: string]: any;
+}
+
+const LazyMotion = ({ type = 'div', children, ...props }: LazyMotionProps) => {
+    const [MotionEl, setMotionEl] = useState<React.ElementType | null>(null)
 
     useEffect(() => {
         let mounted = true
@@ -13,7 +19,7 @@ const LazyMotion = ({ type = 'div', children, ...props }) => {
             .then((mod) => {
                 if (!mounted) return
                 const motion = mod.motion || mod
-                const el = motion[type] || motion[type.toLowerCase()] || null
+                const el = (motion as any)[type] || (motion as any)[type.toLowerCase()] || null
                 if (el) setMotionEl(() => el)
             })
             .catch(() => {
@@ -26,7 +32,7 @@ const LazyMotion = ({ type = 'div', children, ...props }) => {
     }, [type])
 
     if (MotionEl) {
-        return <MotionEl {...props}>{children}</MotionEl>
+        return React.createElement(MotionEl, props, children)
     }
 
     // fallback: render a plain element

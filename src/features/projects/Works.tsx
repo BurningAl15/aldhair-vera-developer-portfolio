@@ -8,7 +8,13 @@ import { SectionWrapper } from "../../hoc";
 import { projects } from "../../constants";
 import { fadeIn, textVariant } from "../../utils/motion";
 
-const ProjectCard = ({
+import { Project } from "../../constants";
+
+interface ProjectCardProps extends Project {
+  index: number;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
   index,
   name,
   description,
@@ -101,7 +107,7 @@ const Works = () => {
       <div className="w-full flex">
         <LazyMotion
           type="p"
-          variants={fadeIn("", "", 0.1, 1)}
+          variants={fadeIn("", "tween", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-7xl leading-[30px]"
         >
           Following projects showcases my skills and experience through

@@ -16,7 +16,7 @@ const Footer = lazy(() => import('./layout/Footer'))
 
 // Lazy-load StarsCanvas from its specific module to avoid bundling
 // the entire `./components/canvas` index (which imports all canvases).
-const StarsCanvas = lazy(() => import('./components/canvas/Stars').then(m => ({ default: m.default || m.StarsCanvas })))
+const StarsCanvas = lazy(() => import('./components/canvas/Stars'));
 
 const App = () => {
   return (

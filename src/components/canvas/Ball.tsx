@@ -4,13 +4,21 @@ import {
   Float,
   OrbitControls,
   Preload,
-  useProgress
+  useTexture,
+  MeshDistortMaterial,
+  Decal
 } from "@react-three/drei";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import { motion } from "framer-motion";
 
-const ComputerModel = () => {
-  const [rotation, setRotation] = useState(0);
+interface BallModelProps {
+  icon: string;
+}
+
+const BallModel: React.FC<BallModelProps> = ({ icon }) => {
+  const [rotation, setRotation] = useState<number>(0);
+  const [textureError, setTextureError] = useState<boolean>(false);
+  const [map] = useTexture([icon]);
 
   useFrame((state) => {
     setRotation((prev) => prev + 0.005);
@@ -35,28 +43,47 @@ const ComputerModel = () => {
           scale={2.75}
           rotation={[0, rotation, 0]}
         >
-          <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial
+          <sphereGeometry args={[1, 32, 32]} />
+          <MeshDistortMaterial
             color="#3d1c56"
-            polygonOffset
-            polygonOffsetFactor={-5}
-            flatShading
-            metalness={0.5}
-            roughness={0.2}
-            envMapIntensity={1}
+            attach="material"
+            distort={0.3}
+            speed={1.5}
+            roughness={0}
           />
+          {!textureError && map && (
+            <Decal
+              position={[0, 0, 1]}
+              rotation={[2 * Math.PI, 0, 6.25]}
+              scale={1}
+              map={map}
+            />
+          )}
         </mesh>
       </Float>
     </mesh>
   );
 };
 
-const MobileFallback = () => {
-  const [isHovered, setIsHovered] = useState(false);
+// Add a very small ambient light in the canvas root to ensure decals/materials
+// are visible even if other lights are weak or missing in some scenes.
+
+interface MobileFallbackProps {
+  icon: string;
+  name: string;
+}
+
+const MobileFallback: React.FC<MobileFallbackProps> = ({ icon, name }) => {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
   const handleInteraction = useCallback(() => {
     setIsHovered(true);
-    setTimeout(() => setIsHovered(false), 1000);
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsHovered(false);
+      setIsAnimating(false);
+    }, 1000);
   }, []);
 
   return (
@@ -67,26 +94,33 @@ const MobileFallback = () => {
       transition={{ duration: 0.5 }}
     >
       <div
-        className="relative w-[280px] h-[280px] group cursor-pointer"
+        className="relative w-[180px] h-[180px] group cursor-pointer"
+        style={{ height: 'inherit' }}
         onClick={handleInteraction}
       >
         <motion.div
           className="w-full h-full bg-tertiary rounded-xl flex items-center justify-center"
           animate={{
             scale: isHovered ? 1.05 : 1,
-            rotate: isHovered ? 5 : 0
+            rotate: isHovered ? 5 : 0,
+            backgroundColor: isAnimating ? "#4a1f7a" : "#3d1c56"
           }}
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="text-white text-4xl"
+            className="w-16 h-16 flex items-center justify-center"
             animate={{
               scale: isHovered ? 1.2 : 1,
-              rotate: isHovered ? 10 : 0
+              rotate: isHovered ? 10 : 0,
+              y: isAnimating ? -10 : 0
             }}
             transition={{ duration: 0.3 }}
           >
-            💻
+            <img
+              src={icon}
+              alt={name}
+              className="w-full h-full object-contain"
+            />
           </motion.div>
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
@@ -100,7 +134,8 @@ const MobileFallback = () => {
         <motion.div
           className="absolute -inset-1 bg-primary/20 rounded-xl blur opacity-0"
           animate={{
-            opacity: isHovered ? 1 : 0
+            opacity: isHovered ? 1 : 0,
+            scale: isAnimating ? 1.2 : 1
           }}
           transition={{ duration: 0.3 }}
         />
@@ -109,15 +144,18 @@ const MobileFallback = () => {
   );
 };
 
-const ComputersCanvas = () => {
+interface BallCanvasProps {
+  icon: string;
+  name: string;
+}
+
+const BallCanvas: React.FC<BallCanvasProps> = ({ icon, name }) => {
   const isMobile = useIsMobile();
-  const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [dpr, setDpr] = useState([1, 2]);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [dpr, setDpr] = useState<[number, number]>([1, 2]);
 
   useEffect(() => {
-    let timer;
-
     const checkWebGLSupport = () => {
       try {
         const canvas = document.createElement('canvas');
@@ -126,8 +164,10 @@ const ComputersCanvas = () => {
           failIfMajorPerformanceCaveat: true,
           preserveDrawingBuffer: true,
           alpha: true,
-          antialias: true
-        }) || canvas.getContext('experimental-webgl');
+          antialias: true,
+          desynchronized: true,
+          xrCompatible: true
+        }) || canvas.getContext('experimental-webgl') as WebGLRenderingContext;
 
         if (!gl) {
           setIsError(true);
@@ -143,19 +183,8 @@ const ComputersCanvas = () => {
           console.log('WebGL Vendor:', vendor);
         }
 
-        // adjust dpr based on device pixel ratio and mobile flag
-        try {
-          const devicePixelRatio = window.devicePixelRatio || 1;
-          if (isMobile) {
-            setDpr([1, Math.min(1.25, devicePixelRatio)]);
-          } else {
-            setDpr([1, Math.min(2, devicePixelRatio)]);
-          }
-        } catch (e) {
-          setDpr([1, 1]);
-        }
-
         // If we created a temporary context for detection, free it right away
+        // to avoid increasing the number of active WebGL contexts.
         try {
           const loseExt = gl.getExtension('WEBGL_lose_context') || gl.getExtension('MOZ_WEBGL_lose_context') || gl.getExtension('WEBKIT_WEBGL_lose_context');
           if (loseExt && typeof loseExt.loseContext === 'function') {
@@ -165,9 +194,11 @@ const ComputersCanvas = () => {
           // ignore
         }
 
-        timer = setTimeout(() => {
+        const timer = setTimeout(() => {
           setIsLoading(false);
         }, 1000);
+
+        return () => clearTimeout(timer);
       } catch (error) {
         console.error('WebGL Support Check Error:', error);
         setIsError(true);
@@ -176,27 +207,36 @@ const ComputersCanvas = () => {
     };
 
     checkWebGLSupport();
-
-    return () => {
-      if (timer) {
-        clearTimeout(timer);
+    try {
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      if (isMobile) {
+        setDpr([1, Math.min(1.25, devicePixelRatio)]);
+      } else {
+        setDpr([1, Math.min(2, devicePixelRatio)]);
       }
-    };
-  }, [isMobile]);
+    } catch (e) {
+      setDpr([1, 1]);
+    }
+  }, []);
 
   if (isMobile || isError) {
-    return <MobileFallback />;
+    return <MobileFallback icon={icon} name={name} />;
   }
 
   return (
-    <div className="w-full h-full relative">
+    <div
+      className="w-full h-full relative"
+      role="img"
+      aria-label={`3D interactive sphere for ${name}`}
+    >
       <Canvas
         frameloop="demand"
         shadows
         dpr={dpr}
         camera={{ position: [20, 3, 5], fov: 25 }}
         gl={{
-          // Do not preserve drawing buffer to reduce GPU/memory usage
+          // preserveDrawingBuffer increases memory usage significantly;
+          // disable it to reduce memory pressure and avoid context loss.
           preserveDrawingBuffer: false,
           powerPreference: "high-performance",
           antialias: false,
@@ -210,14 +250,16 @@ const ComputersCanvas = () => {
           setIsError(true);
         }}
         onCreated={({ gl }) => {
-          // Attach a DOM-level context lost listener to avoid React unknown-prop warnings
+          gl.setClearColor('#000000', 0);
+          // Attach DOM-level event listener for context loss so React doesn't warn
           try {
             if (gl && gl.domElement && typeof gl.domElement.addEventListener === 'function') {
-              const handler = (ev) => {
-                console.warn('WebGL context lost (DOM event) in ComputersCanvas', ev);
+              const handler = (ev: Event) => {
+                console.warn('WebGL context lost (DOM event) in BallCanvas', ev);
                 setIsError(true);
               };
               gl.domElement.addEventListener('webglcontextlost', handler, false);
+              // no removal here because canvas lifecycle is managed by r3f; when the canvas is removed the DOM node is removed too
             }
           } catch (e) {
             // ignore
@@ -225,6 +267,7 @@ const ComputersCanvas = () => {
         }}
       >
         <Suspense fallback={null}>
+          <ambientLight intensity={0.25} />
           <OrbitControls
             enableZoom={false}
             maxPolarAngle={Math.PI / 2}
@@ -232,11 +275,12 @@ const ComputersCanvas = () => {
             enableDamping={true}
             dampingFactor={0.05}
             rotateSpeed={isMobile ? 0.5 : 1}
-            touchRotateSpeed={0.5}
+            enablePan={false}
+            enableRotate={true}
+            minDistance={10}
+            maxDistance={30}
           />
-          {/* Add a small ambient light so models have base illumination */}
-          <ambientLight intensity={0.35} />
-          <ComputerModel />
+          <BallModel icon={icon} />
         </Suspense>
         <Preload all />
       </Canvas>
@@ -254,4 +298,4 @@ const ComputersCanvas = () => {
   );
 };
 
-export default ComputersCanvas;
+export default BallCanvas;

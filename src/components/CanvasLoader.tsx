@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import CanvasGate from './CanvasGate'
 
 const CanvasLoader = () => {
-    const [CanvasComp, setCanvasComp] = useState(null)
+    const [CanvasComp, setCanvasComp] = useState<React.ComponentType<any> | null>(null)
 
     useEffect(() => {
         let mounted = true

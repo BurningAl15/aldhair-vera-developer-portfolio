@@ -2,17 +2,24 @@ import React from "react";
 import LazyMotion from "../utils/LazyMotion";
 import { Tilt } from "react-tilt";
 import { styles } from "../styles";
-import { github } from "../assets";
+import { github, preview } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 
-const ProjectCard = ({
+import { Project } from "../constants";
+
+interface ProjectCardProps extends Project {
+    index: number;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
     index,
     name,
     description,
     tags,
     image,
     source_code_link,
+    preview_project_link,
 }) => {
     return (
         <LazyMotion
@@ -78,7 +85,7 @@ const ProjectCard = ({
                     ))}
                 </div>
             </Tilt>
-        </motion.div>
+        </LazyMotion>
     );
 };
 
@@ -95,7 +102,7 @@ const Projects = () => {
             >
                 <p className={styles.sectionSubText}>My work</p>
                 <h2 className={styles.sectionHeadText}>Projects.</h2>
-            </motion.div>
+            </LazyMotion>
 
             <LazyMotion
                 type="div"
@@ -110,7 +117,7 @@ const Projects = () => {
                 repositories and live demos. It reflects my ability to solve complex
                 problems, work with different technologies, and manage projects
                 effectively.
-            </motion.div>
+            </LazyMotion>
 
             <LazyMotion
                 type="div"
@@ -123,7 +130,7 @@ const Projects = () => {
                 {projects.map((project, index) => (
                     <ProjectCard key={`project-${index}`} index={index} {...project} />
                 ))}
-            </motion.div>
+            </LazyMotion>
         </div>
     );
 };

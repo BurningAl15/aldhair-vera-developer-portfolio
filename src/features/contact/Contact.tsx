@@ -7,12 +7,12 @@ import { SectionWrapper } from "../../hoc";
 import { slideIn } from "../../utils/motion";
 
 
-const Contact = () => {
+const Contact: React.FC = () => {
   const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
   const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
   const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
 
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -21,7 +21,7 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { target } = e;
     const { name, value } = target;
 
@@ -31,9 +31,15 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS environment variables are missing.");
+      setLoading(false);
+      return;
+    }
 
     emailjs
       .send(

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-const ClientOnly = ({ children }) => {
+interface ClientOnlyProps {
+  children: React.ReactNode;
+}
+
+const ClientOnly: React.FC<ClientOnlyProps> = ({ children }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

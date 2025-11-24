@@ -7,7 +7,13 @@ import { services } from "../../constants";
 import { SectionWrapper } from "../../hoc";
 import { fadeIn, textVariant } from "../../utils/motion";
 
-const ServiceCard = ({ index, title, icon }) => (
+interface ServiceCardProps {
+  index: number;
+  title: string;
+  icon: string;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ index, title, icon }) => (
   <Tilt
     className='xs:w-[180px] w-full'
     tiltMaxAngleX={45}
@@ -47,7 +53,7 @@ const About = () => {
       </motion.div>
 
       <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
+        variants={fadeIn("", "tween", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-7xl leading-[30px]'
       >
         I am a skilled software developer with experience in TypeScript and Javascript, and expertise in frameworks like React and Express for web development, React Native for mobile development, and C# for Unity.
@@ -65,7 +71,7 @@ const About = () => {
       </div>
 
       <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
+        variants={fadeIn("", "tween", 0.1, 1)}
         className='mt-5 text-secondary text-[24px] max-w-7xl leading-[30px] text-center'
       >
         "Programming gives pleasure to creative people"
