@@ -65,7 +65,7 @@ const BallModel = ({ icon }) => {
 // Add a very small ambient light in the canvas root to ensure decals/materials
 // are visible even if other lights are weak or missing in some scenes.
 
-const MobileFallback = ({ icon }) => {
+const MobileFallback = ({ icon, name }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -110,7 +110,7 @@ const MobileFallback = ({ icon }) => {
           >
             <img
               src={icon}
-              alt="technology"
+              alt={name}
               className="w-full h-full object-contain"
             />
           </motion.div>
@@ -136,7 +136,7 @@ const MobileFallback = ({ icon }) => {
   );
 };
 
-const BallCanvas = ({ icon }) => {
+const BallCanvas = ({ icon, name }) => {
   const isMobile = useIsMobile();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -207,11 +207,15 @@ const BallCanvas = ({ icon }) => {
   }, []);
 
   if (isMobile || isError) {
-    return <MobileFallback icon={icon} />;
+    return <MobileFallback icon={icon} name={name} />;
   }
 
   return (
-    <div className="w-full h-full relative">
+    <div
+      className="w-full h-full relative"
+      role="img"
+      aria-label={`3D interactive sphere for ${name}`}
+    >
       <Canvas
         frameloop="demand"
         shadows

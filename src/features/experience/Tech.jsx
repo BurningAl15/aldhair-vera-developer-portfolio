@@ -2,11 +2,11 @@ import React, { Suspense, lazy } from 'react'
 
 // Import BallCanvas lazily from its module so the Tech chunk doesn't
 // statically pull the entire `./canvas` index and vendor libs.
-const BallCanvas = lazy(() => import('./canvas/Ball').then(m => ({ default: m.default || m.BallCanvas })))
-import { SectionWrapper } from "../hoc";
-import { technologies } from "../constants";
-import LazyMount from './LazyMount'
-import CanvasGate from './CanvasGate'
+const BallCanvas = lazy(() => import('../../components/canvas/Ball').then(m => ({ default: m.default || m.BallCanvas })))
+import { SectionWrapper } from "../../hoc";
+import { technologies } from "../../constants";
+import LazyMount from '../../components/LazyMount'
+import CanvasGate from '../../components/CanvasGate'
 
 const Tech = () => {
   return (
@@ -17,7 +17,7 @@ const Tech = () => {
           <LazyMount>
             <CanvasGate>
               <Suspense fallback={null}>
-                <BallCanvas icon={technology.icon} />
+                <BallCanvas icon={technology.icon} name={technology.name} />
               </Suspense>
             </CanvasGate>
           </LazyMount>

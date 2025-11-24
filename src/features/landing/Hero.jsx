@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { styles } from '../styles';
-import ClientOnly from './ClientOnly';
-import CanvasLoader from './CanvasLoader';
+import { styles } from '../../styles';
+import ClientOnly from '../../components/ClientOnly';
+import CanvasLoader from '../../components/CanvasLoader';
 
 const Hero = () => {
   return (

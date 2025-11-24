@@ -17,23 +17,25 @@ const SocialMediaCard = ({ index, image, url, title }) => (
       scale={1}
       transitionSpeed={450}
     >
-      <motion.div
+      <motion.a
         variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-        className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card cursor-pointer'
-        onClick={() => window.open(url, "_blank")}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card cursor-pointer block'
       >
         <div
           className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[150px] flex justify-evenly items-center flex-col'
         >
           <img
             src={image}
-            alt='web-development'
+            alt={title}
             loading='lazy'
             decoding='async'
             className='w-24 h-24 object-contain'
           />
         </div>
-      </motion.div>
+      </motion.a>
       <span className="absolute hidden group-hover:flex -left-1 -top-2 -translate-y-full w-48 px-2 py-2 bg-gray-700 rounded-lg text-center text-white text-sm after:content-[''] after:absolute after:left-1/2 after:top-[100%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-gray-700 custom-tooltip">
         {title}
       </span>

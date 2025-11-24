@@ -8,6 +8,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 // https://vitejs.dev/config/
+/// <reference types="vitest" />
 export default defineConfig(async () => {
   const plugins: any[] = [react()]
 
@@ -93,6 +94,11 @@ export default defineConfig(async () => {
       commonjsOptions: {
         include: [/node_modules/]
       }
+    },
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './src/vitest.setup.ts',
     }
   }
 })
