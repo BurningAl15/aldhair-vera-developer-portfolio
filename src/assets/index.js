@@ -32,6 +32,7 @@ import makeItReal from "./company/MakeItReal.png";
 import globalTask from "./company/GlobalTask.png";
 import subterra from "./company/Subterra.png";
 import freelance from "./company/Freelance.png";
+import kodland from "./company/Kodland.png";
 
 import quote from "./works/RandomQuote.png";
 import blackjack from "./works/Blackjack.png";
@@ -45,6 +46,9 @@ import sabor from "./works/SaborAPeru.png";
 import voting from "./works/Voting.png";
 import landing from "./works/LandingCake.png";
 import tulum from "./works/Tulum.png";
+import cozyPomodoro from "./works/CozyPomodoro.png";
+import videogamePortfolio from "./works/VideogameDeveloperPortfolio.png";
+import fastTaskManager from "./works/FastTaskManager.png";
 
 import sm_github from "./social Medias/Github.png";
 import sm_linkedin from "./social Medias/Linkedin.png";
@@ -82,6 +86,7 @@ export {
   makeItReal,
   subterra,
   freelance,
+  kodland,
   quote,
   blackjack,
 
@@ -93,6 +98,9 @@ export {
   voting,
   landing,
   tulum,
+  cozyPomodoro,
+  videogamePortfolio,
+  fastTaskManager,
   sm_github,
   sm_linkedin,
   sm_youtube,

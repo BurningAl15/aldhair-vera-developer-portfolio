@@ -24,6 +24,7 @@ import {
   globalTask,
   subterra,
   freelance,
+  kodland,
   quote,
   blackjack,
 
@@ -35,6 +36,9 @@ import {
   voting,
   tulum,
   landing,
+  cozyPomodoro,
+  videogamePortfolio,
+  fastTaskManager,
   sm_github,
   sm_linkedin,
   sm_youtube,
@@ -62,7 +66,7 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Full Stack Web Developer",
+    title: "Frontend Engineer (React/TypeScript)",
     icon: web,
   },
   {
@@ -70,12 +74,12 @@ const services = [
     icon: mobile,
   },
   {
-    title: "XR Developer",
-    icon: backend,
+    title: "Game Developer (Unity)",
+    icon: gameDev,
   },
   {
-    title: "Game Developer",
-    icon: gameDev,
+    title: "XR Developer",
+    icon: backend,
   },
   {
     title: "Content Creator",
@@ -150,43 +154,56 @@ const [oldColor, newColor] = ["#383E56", "#E6DEDD"];
 
 const experiences = [
   {
-    title: "Full Stack Developer",
+    title: "Unity Developer (Freelance for TGA)",
     company_name: "Freelance",
     icon: freelance,
     iconBg: oldColor,
-    date: "July 2023 - Present",
+    date: "February 2024 - December 2025",
     points: [
-      "Creating tools for my own use",
-      "Working on different freelance projects",
-      "Learning new technologies and practising new skills",
+      "Developing e-learning and e-training videogames for Android, iOS, and WebGL platforms.",
+      "Building interactive educational experiences using Unity engine and C#.",
+      "Implementing cross-platform solutions with focus on performance optimization.",
+      "Collaborating with educational content teams to create engaging learning experiences.",
     ],
   },
   {
-    title: "Full stack Developer",
-    company_name: "Subterra",
+    title: "Web Development Teacher",
+    company_name: "Kodland",
+    icon: kodland,
+    iconBg: oldColor,
+    date: "October 2023 - January 2024",
+    points: [
+      "Taught frontend foundations (HTML, CSS, JavaScript) to students aged 12-18.",
+      "Created engaging lesson plans and interactive coding exercises.",
+      "Mentored students in web development best practices and problem-solving.",
+      "Fostered a creative learning environment to build students' confidence in coding.",
+    ],
+  },
+  {
+    title: "Full-Stack Developer (MERN)",
+    company_name: "Subterra AI",
     icon: subterra,
     iconBg: oldColor,
     date: "May 2022 - June 2023",
     points: [
-      "Developing and maintaining the layout, add functionalities, make improvements, form validations, bring data from AWS lambdas, upload images and other types of media, create new views and join them to the product, fix bugs in front and backend, modify backend lambdas (NodeJS and Java) and deploy them, AWS to see S3, DynamoDB.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-      "For FrontEnd I worked with React, Redux, React Query and Typescript",
+      "Built and maintained React views with AWS integrations (Lambdas, S3, DynamoDB, AuroraDB).",
+      "Implemented GraphQL queries for efficient data fetching; managed global state with Redux and Context API.",
+      "Improved code reliability by implementing unit tests with Jest, reducing regressions in existing flows.",
+      "Collaborated with cross-functional teams (UX, QA, backend) to deliver high-quality features.",
+      "Stack: React, Redux, React Query, TypeScript; Backend: Node.js/Java.",
     ],
   },
   {
-    title: "React.js Developer",
+    title: "React Front-End Developer",
     company_name: "GlobalTask",
     icon: globalTask,
     iconBg: oldColor,
     date: "February 2022 - May 2022",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Developing the layout and program FrontEnd for a dashboard app with React.",
-      "Developing the layout and program FrontEnd for a landing page app with React.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-      "As FrontEnd, I was able to layout and program whole features to modify a template (Materially) and apply hooks, filters, work with tables and cards, fetch data from some endpoints and work with a 7 members team to have clean, reusable and high quality code by applying good manners for React apps.",
+      "Delivered React features for dashboard and landing page applications.",
+      "Customized Material-UI templates with hooks, filters, tables, and cards.",
+      "Worked in a team of 7 developers to maintain clean, reusable, and high-quality code.",
+      "Participated in code reviews and applied React best practices.",
     ],
   },
   {
@@ -196,23 +213,22 @@ const experiences = [
     iconBg: oldColor,
     date: "November 2021 - August 2022",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developed and maintained web applications using React.js and related technologies.",
+      "Collaborated with cross-functional teams including designers, product managers, and developers.",
+      "Implemented responsive design and ensured cross-browser compatibility.",
+      "Participated in code reviews and provided constructive feedback to other developers.",
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "MasUno",
+    title: "Front-End Developer",
+    company_name: "MASuno",
     icon: masuno,
     iconBg: oldColor,
     date: "December 2020 - August 2021",
     points: [
-      "Developing the layout and program FrontEnd for an e-commerce.",
-      "Developing the layout and program FrontEnd for a video-streaming app. (Orbem App)",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "As FrontEnd, I was able to layout and program functionalities for the web apps by using laravel blade, SASS and JQuery.",
+      "Built e-commerce and video-streaming (Orbem App) frontends using Laravel Blade, SASS, and jQuery.",
+      "Implemented responsive design and ensured cross-browser compatibility.",
+      "Developed layouts and programmed functionalities for web applications.",
     ],
   },
 ];
@@ -245,6 +261,84 @@ const testimonials = [
 ];
 
 const projects = [
+  {
+    name: "Cozy Pomodoro",
+    description:
+      "Flutter mobile app combining Pomodoro timer with lo-fi music player. Features animations, notifications, breathing exercises, and premium themes. Built for focus and productivity, especially helpful for ADHD users. Published on Google Play Store.",
+    tags: [
+      {
+        name: "flutter",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "local data",
+        color: "green-text-gradient",
+      },
+      {
+        name: "material design",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "play store",
+        color: "red-text-gradient",
+      },
+    ],
+    image: cozyPomodoro,
+    preview_project_link: "https://cozy-pomodoro-landing.vercel.app/",
+    source_code_link: "",
+  },
+  {
+    name: "Videogame Developer Portfolio",
+    description:
+      "Next.js 14 portfolio showcasing 7 years of Unity game development experience. Features playable WebGL games using react-unity-webgl, custom Godot integration, blog system, YouTube integration, and PWA support. Displays projects, work history, and educational background.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "local data",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "netlify",
+        color: "red-text-gradient",
+      },
+    ],
+    image: videogamePortfolio,
+    preview_project_link: "https://aldhairvera.netlify.app/",
+    source_code_link: "",
+  },
+  {
+    name: "Fast Task Manager",
+    description:
+      "Keyboard-first task manager inspired by Trello/Jira, built with Next.js. Features command palette, drag-and-drop, automatic subtask parsing, context logs, ticket numbering, and PWA support. Includes notifications and collapsible groups for efficient project management.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "firebase",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "netlify",
+        color: "red-text-gradient",
+      },
+    ],
+    image: fastTaskManager,
+    preview_project_link: "https://fast-task-manager.netlify.app",
+    source_code_link: "",
+  },
   {
     name: "Blackjack",
     description:
