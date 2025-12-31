@@ -1,0 +1,7 @@
+# robots.txt for Aldhair Vera portfolio
+# Allow all crawlers to index the site. Replace the URL with your production domain's sitemap if available.
+User-agent: *
+Allow: /
+
+# Uncomment and set your sitemap URL in production:
+# Sitemap: https://example.com/sitemap.xml
