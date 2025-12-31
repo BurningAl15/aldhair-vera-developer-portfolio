@@ -35,8 +35,7 @@ import freelance from "./company/Freelance.png";
 
 import quote from "./works/RandomQuote.png";
 import blackjack from "./works/Blackjack.png";
-import foodRecipes from "./works/Food.png";
-import frontend from "./works/Frontend-makeIt.png";
+
 import foodya from "./works/FoodYa.png";
 import aldhaNote from "./works/AldhaNote.png";
 import studentManager from "./works/Student-Manager.png";
@@ -85,8 +84,7 @@ export {
   freelance,
   quote,
   blackjack,
-  foodRecipes,
-  frontend,
+
   foodya,
   aldhaNote,
   studentManager,

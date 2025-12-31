@@ -26,8 +26,7 @@ import {
   freelance,
   quote,
   blackjack,
-  foodRecipes,
-  frontend,
+
   foodya,
   aldhaNote,
   studentManager,
@@ -357,59 +356,8 @@ const projects = [
     preview_project_link: "https://random-quotes-by-aldhair.netlify.app/",
     source_code_link: "https://github.com/BurningAl15/fcc-random-quote",
   },
-  {
-    name: "Food Recipes",
-    description:
-      "Web Application that gets food recipes and can search words to produce new results fetched from an API",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "gh pages",
-        color: "red-text-gradient",
-      },
-    ],
-    image: foodRecipes,
-    preview_project_link: "https://burningal15.github.io/RecipeApp/",
-    source_code_link: "https://github.com/BurningAl15/RecipeApp",
-  },
-  {
-    name: "Ecommerce FrontEnd",
-    description:
-      "Web Application that gets data from an API and shows data, the products simulate a limited time offer, after a specific time, you can't see their details",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Netlify",
-        color: "red-text-gradient",
-      },
-    ],
-    image: frontend,
-    preview_project_link: "https://makeit-frontend-assesment.netlify.app/",
-    source_code_link:
-      "https://github.com/BurningAl15/Assesment-frontend-retrieval-makeit",
-  },
+
+
   {
     name: "Food Ya!",
     description:
