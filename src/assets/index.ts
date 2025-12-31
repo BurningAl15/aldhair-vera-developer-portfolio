@@ -44,7 +44,7 @@ import subterra from "./company/Subterra.webp";
 
 import freelance from "./company/Freelance.webp";
 import kodland from "./company/Kodland.png";
-import quote from "./works/RandomQuote.png";
+import quote from "./works/RandomQuote.webp";
 
 import blackjack from "./works/Blackjack.png";
 import foodRecipes from "./works/Food.webp";
@@ -62,7 +62,7 @@ import sabor from "./works/SaborAPeru.webp";
 import voting from "./works/Voting.webp";
 
 import landing from "./works/LandingCake.webp";
-import tulum from "./works/Tulum.png";
+import tulum from "./works/Tulum.webp";
 import cozyPomodoro from "./works/CozyPomodoro.png";
 import videogamePortfolio from "./works/VideogameDeveloperPortfolio.png";
 import fastTaskManager from "./works/FastTaskManager.png";

@@ -15,7 +15,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ index, title, icon }) => (
   <Tilt
-    className='xs:w-[180px] w-full'
+    className='xs:w-[250px] w-full'
     tiltMaxAngleX={45}
     tiltMaxAngleY={45}
     scale={1}
