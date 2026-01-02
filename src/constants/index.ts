@@ -183,7 +183,7 @@ const experiences: Experience[] = [
     company_name: "Freelance",
     icon: freelance,
     iconBg: oldColor,
-    date: "February 2024 - December 2025",
+    date: "October 2023 - December 2025",
     points: [
       "Developing e-learning and e-training videogames for Android, iOS, and WebGL platforms.",
       "Building interactive educational experiences using Unity engine and C#.",
