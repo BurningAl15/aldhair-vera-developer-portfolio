@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="0" x2="1370" y2="900" gradientUnits="userSpaceOnUse"><stop stop-color="#F5F8FF"/><stop offset="1" stop-color="#E8F0FF"/></linearGradient>
+    <linearGradient id="blue" x1="171" y1="264" x2="800" y2="570" gradientUnits="userSpaceOnUse"><stop stop-color="#2563EB"/><stop offset="1" stop-color="#4F8DF7"/></linearGradient>
+    <filter id="shadow" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+  <rect width="1440" height="900" rx="36" fill="url(#bg)"/>
+  <circle cx="1220" cy="115" r="190" fill="#D6E5FF" opacity=".65"/>
+  <rect x="54" y="48" width="1332" height="804" rx="28" fill="#fff"/>
+  <rect x="54" y="48" width="1332" height="72" rx="28" fill="#fff"/>
+  <path d="M54 120h1332" stroke="#E8EDF5"/>
+  <rect x="91" y="69" width="34" height="34" rx="10" fill="#2563EB"/>
+  <path d="M101 88c0-6 4-10 9-10s9 4 9 10v5h-18v-5Z" stroke="#fff" stroke-width="2.5"/><circle cx="110" cy="86" r="2" fill="#fff"/>
+  <text x="137" y="94" fill="#17233B" font-family="Arial,sans-serif" font-size="21" font-weight="700">PocketBudget <tspan fill="#2563EB">Lab</tspan></text>
+  <text x="1060" y="91" fill="#526078" font-family="Arial,sans-serif" font-size="15">Herramientas</text>
+  <text x="1171" y="91" fill="#526078" font-family="Arial,sans-serif" font-size="15">Cómo funciona</text>
+  <rect x="1294" y="65" width="58" height="38" rx="12" fill="#F1F5FD"/><text x="1310" y="90" fill="#34445E" font-family="Arial,sans-serif" font-size="14" font-weight="700">ES</text>
+  <rect x="92" y="174" width="151" height="31" rx="15.5" fill="#EAF1FF"/>
+  <circle cx="110" cy="190" r="5" fill="#3275EE"/><text x="124" y="195" fill="#245DC5" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.1">POCKETBUDGET LAB</text>
+  <text x="92" y="275" fill="#15213A" font-family="Arial,sans-serif" font-size="58" font-weight="700">Calcula antes de</text>
+  <text x="92" y="340" fill="#2563EB" font-family="Arial,sans-serif" font-size="58" font-weight="700">endeudarte.</text>
+  <text x="94" y="391" fill="#5A667D" font-family="Arial,sans-serif" font-size="20">Simuladores para comparar préstamos, cuotas, costos</text>
+  <text x="94" y="420" fill="#5A667D" font-family="Arial,sans-serif" font-size="20">y ahorros antes de comprometer tu dinero.</text>
+  <rect x="92" y="455" width="201" height="56" rx="14" fill="url(#blue)"/><text x="119" y="490" fill="#fff" font-family="Arial,sans-serif" font-size="16" font-weight="700">Comparar préstamos</text>
+  <rect x="306" y="455" width="173" height="56" rx="14" fill="#fff" stroke="#D9E1EF" stroke-width="2"/><text x="332" y="490" fill="#27354E" font-family="Arial,sans-serif" font-size="16" font-weight="700">Calcular una cuota</text>
+  <rect x="770" y="166" width="550" height="346" rx="24" fill="#1C3155"/>
+  <circle cx="1190" cy="220" r="101" fill="#2D66C8" opacity=".28"/>
+  <text x="811" y="211" fill="#AFC9F9" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">SIMULADOR DE PRÉSTAMO</text>
+  <text x="811" y="258" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="700">Compara el costo completo</text>
+  <rect x="811" y="281" width="466" height="1" fill="#435675"/>
+  <text x="811" y="322" fill="#D7E3F6" font-family="Arial,sans-serif" font-size="14">Monto</text><text x="1133" y="322" fill="#fff" font-family="Arial,sans-serif" font-size="16" font-weight="700">S/ 12,000</text>
+  <text x="811" y="361" fill="#D7E3F6" font-family="Arial,sans-serif" font-size="14">Plazo</text><text x="1160" y="361" fill="#fff" font-family="Arial,sans-serif" font-size="16" font-weight="700">24 meses</text>
+  <text x="811" y="400" fill="#D7E3F6" font-family="Arial,sans-serif" font-size="14">Cuota estimada</text><text x="1118" y="400" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="700">S/ 612.40</text>
+  <rect x="811" y="424" width="466" height="61" rx="14" fill="#294773"/>
+  <text x="831" y="450" fill="#D7E3F6" font-family="Arial,sans-serif" font-size="12">Estimación referencial</text><text x="831" y="470" fill="#fff" font-family="Arial,sans-serif" font-size="13">Verifica las condiciones finales con tu entidad financiera.</text>
+  <text x="92" y="579" fill="#18253D" font-family="Arial,sans-serif" font-size="25" font-weight="700">Herramientas para decidir con más claridad</text>
+  <text x="92" y="608" fill="#637087" font-family="Arial,sans-serif" font-size="15">Explora escenarios gratuitos antes de comprometerte.</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="92" y="638" width="294" height="155" rx="18" fill="#fff" stroke="#E5EAF2" stroke-width="2"/><circle cx="125" cy="675" r="17" fill="#EAF1FF"/><path d="m118 675 5 5 10-11" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="153" y="680" fill="#19263F" font-size="17" font-weight="700">Comparar préstamos</text><text x="116" y="721" fill="#647087" font-size="14">Revisa cuota, tasa estimada</text><text x="116" y="744" fill="#647087" font-size="14">y total pagado entre ofertas.</text><text x="116" y="776" fill="#2563EB" font-size="13" font-weight="700">Comparar opciones ↗</text>
+    <rect x="405" y="638" width="294" height="155" rx="18" fill="#fff" stroke="#E5EAF2" stroke-width="2"/><circle cx="438" cy="675" r="17" fill="#E7F7F0"/><path d="M431 680v-11h14v11M429 680h18" stroke="#16845D" stroke-width="2"/><text x="466" y="680" fill="#19263F" font-size="17" font-weight="700">Calcular una cuota</text><text x="429" y="721" fill="#647087" font-size="14">Incluye costos y cargos para</text><text x="429" y="744" fill="#647087" font-size="14">estimar el pago mensual real.</text><text x="429" y="776" fill="#16845D" font-size="13" font-weight="700">Calcular ahora ↗</text>
+    <rect x="718" y="638" width="294" height="155" rx="18" fill="#fff" stroke="#E5EAF2" stroke-width="2"/><circle cx="751" cy="675" r="17" fill="#FFF4E4"/><path d="M744 680v-10h14v10M742 680h18M747 674h2m3 0h2" stroke="#B87914" stroke-width="2"/><text x="779" y="680" fill="#19263F" font-size="17" font-weight="700">Simular un depósito</text><text x="742" y="721" fill="#647087" font-size="14">Estima rendimientos según</text><text x="742" y="744" fill="#647087" font-size="14">tasa y plazo de ahorro.</text><text x="742" y="776" fill="#B87914" font-size="13" font-weight="700">Simular ahorro ↗</text>
+    <rect x="1031" y="638" width="294" height="155" rx="18" fill="#fff" stroke="#E5EAF2" stroke-width="2"/><circle cx="1064" cy="675" r="17" fill="#F2ECFF"/><path d="M1056 670h16M1056 675h12M1056 680h8" stroke="#7650C8" stroke-width="2" stroke-linecap="round"/><text x="1092" y="680" fill="#19263F" font-size="17" font-weight="700">Ordenar deudas</text><text x="1055" y="721" fill="#647087" font-size="14">Organiza obligaciones y</text><text x="1055" y="744" fill="#647087" font-size="14">explora escenarios de pago.</text><text x="1055" y="776" fill="#7650C8" font-size="13" font-weight="700">Ver diagnóstico ↗</text>
+  </g>
+  <text x="92" y="827" fill="#738098" font-family="Arial,sans-serif" font-size="12">Ilustración de portfolio basada en las herramientas del producto · cifras visuales de ejemplo</text>
+</svg>
