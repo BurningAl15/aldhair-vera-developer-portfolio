@@ -3,6 +3,8 @@ import { socialProfiles } from "@/data/profile";
 
 export function Header({ locale, alternateHref }: { locale: Locale; alternateHref?: string }) {
   const isEnglish = locale === "en";
+  const nextLocale = isEnglish ? "es" : "en";
+  const nextPath = alternateHref ?? (isEnglish ? "/" : "/en/");
   return (
     <header className="site-header" lang={locale}>
       <a className="brand" href={isEnglish ? "/en/" : "/"} aria-label="Aldhair Vera — inicio">
@@ -15,7 +17,7 @@ export function Header({ locale, alternateHref }: { locale: Locale; alternateHre
           <a href={isEnglish ? "/en/#experience" : "/#experience"}>{isEnglish ? "About" : "Perfil"}</a>
           <a href={isEnglish ? "/en/#contact" : "/#contact"}>{isEnglish ? "Contact" : "Contacto"}</a>
         </nav>
-        <a className="language-link" href={alternateHref ?? (isEnglish ? "/" : "/en/")} lang={isEnglish ? "es" : "en"}>
+        <a className="language-link" href={`/set-language/?lang=${nextLocale}&next=${encodeURIComponent(nextPath)}`} lang={nextLocale}>
           {isEnglish ? "ES" : "EN"}
         </a>
       </div>

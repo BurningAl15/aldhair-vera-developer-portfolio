@@ -7,6 +7,8 @@
 - Las páginas publican título, descripción, canonical, enlaces `hreflang` y metadatos Open Graph/Twitter.
 - Cada idioma genera HTML con su `lang` correcto.
 - El icono del sitio está en `src/app/icon.svg` y Next lo añade al `<head>`.
+- `llms.txt` guía a agentes hacia las páginas públicas y `portfolio-data.json` expone los datos bilingües de proyectos, experiencia y estudios desde la misma fuente del sitio.
+- La selección inicial del idioma se hace en Netlify con el encabezado `Accept-Language`. El cambio manual se recuerda con una cookie. Las URLs y etiquetas `hreflang` mantienen cada versión accesible directamente.
 - Search Console puede añadir su meta de verificación al definir `GOOGLE_SITE_VERIFICATION` durante la compilación.
 
 ## Requiere configuración antes del despliegue

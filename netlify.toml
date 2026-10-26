@@ -4,3 +4,11 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+[[edge_functions]]
+  function = "locale"
+  path = "/"
+
+[[edge_functions]]
+  function = "locale"
+  path = "/set-language/"
