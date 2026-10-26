@@ -4,7 +4,7 @@ import HomePage from "../../home-page";
 export const metadata: Metadata = {
   title: "Mobile apps and web products",
   description:
-    "Product developer in Lima: iOS and Android apps, web apps and games. See what I build, which technologies I use, and how products reach release.",
+    "Software and product engineer in Chincha, Peru: building iOS and Android apps, web apps and games, and taking products from idea through release.",
   alternates: { canonical: "/en/", languages: { es: "/", en: "/en/" } },
   openGraph: {
     type: "website",

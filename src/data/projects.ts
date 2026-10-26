@@ -10,6 +10,12 @@ export type ProductWebsite = {
   purpose: { es: string; en: string };
 };
 
+export type ProjectScreenshot = {
+  src: string;
+  alt: { es: string; en: string };
+  caption: { es: string; en: string };
+};
+
 export type Project = {
   slug: string;
   kind: ProjectKind;
@@ -19,6 +25,7 @@ export type Project = {
   status: { es: string; en: string };
   image?: string;
   imageAlt: { es: string; en: string };
+  screenshots?: ProjectScreenshot[];
   summary: { es: string; en: string };
   challenge?: { es: string; en: string };
   approach?: { es: string; en: string };
@@ -41,10 +48,18 @@ export const projects: Project[] = [
     name: "Cozy Pomodoro",
     category: { es: "Productividad · Flutter", en: "Productivity · Flutter" },
     status: { es: "iOS y Android · macOS en pruebas", en: "iOS & Android · macOS in testing" },
-    image: "/projects/cozy-pomodoro.jpeg",
+    image: "/projects/promo/cozy-pomodoro-promo.webp",
+    screenshots: [
+      { src: "/projects/cozy-pomodoro/screenshots/01-achievements.jpg", alt: { es: "Progreso de logros y rachas en Cozy Pomodoro", en: "Achievement and streak progress in Cozy Pomodoro" }, caption: { es: "Logros y progreso", en: "Achievements and progress" } },
+      { src: "/projects/cozy-pomodoro/screenshots/02-focus-idle.jpg", alt: { es: "Temporizador de enfoque listo para iniciar sobre un paisaje ilustrado", en: "Focus timer ready to start over an illustrated landscape" }, caption: { es: "Timer listo", en: "Timer ready" } },
+      { src: "/projects/cozy-pomodoro/screenshots/03-focus-running.jpg", alt: { es: "Sesión Pomodoro activa con controles de pausa y audio Cozy Radio", en: "Active Pomodoro session with pause controls and Cozy Radio audio" }, caption: { es: "Sesión en curso", en: "Session in progress" } },
+      { src: "/projects/cozy-pomodoro/screenshots/04-android-notification.jpg", alt: { es: "Notificación de Android con el tiempo restante y controles para pausar o detener", en: "Android notification showing time remaining with pause and stop controls" }, caption: { es: "Controles en Android", en: "Android controls" } },
+      { src: "/projects/cozy-pomodoro/screenshots/05-themes.jpg", alt: { es: "Ajustes de Cozy Pomodoro para elegir paletas de color y paisajes", en: "Cozy Pomodoro settings for choosing color palettes and landscapes" }, caption: { es: "Temas y paisajes", en: "Themes and landscapes" } },
+      { src: "/projects/cozy-pomodoro/screenshots/06-statistics.jpg", alt: { es: "Estadísticas de racha, tiempo de enfoque, sesiones y objetivo diario", en: "Statistics for streak, focus time, sessions and daily goal" }, caption: { es: "Estadísticas", en: "Statistics" } },
+    ],
     imageAlt: {
-      es: "Temporizador Cozy Pomodoro sobre un tema ilustrado",
-      en: "Cozy Pomodoro timer on an illustrated theme",
+      es: "Imagen promocional de Cozy Pomodoro en un teléfono, con un temporizador frente a un jardín lluvioso",
+      en: "Cozy Pomodoro promotional image showing a phone timer against a rainy garden",
     },
     summary: {
       es: "Un temporizador de enfoque que combina ciclos Pomodoro, audio ambiental y temas visuales para hacer más amable el momento de empezar.",
@@ -82,6 +97,7 @@ export const projects: Project[] = [
         en: "It introduces Cozy’s method, themes and audio, and brings together store, support and policy links. The landing explains the product before sending visitors to a store.",
       },
     },
+    relatedProjectSlug: "cozy-pomodoro-website",
     featured: true,
   },
   {
@@ -256,8 +272,8 @@ export const projects: Project[] = [
     name: "AldhaNote",
     category: { es: "Móvil · React Native", en: "Mobile · React Native" },
     status: { es: "Proyecto histórico · disponibilidad por verificar", en: "Historical project · availability unverified" },
-    image: "/projects/aldhanote.webp",
-    imageAlt: { es: "Proyecto móvil AldhaNote", en: "AldhaNote mobile project" },
+    image: "/projects/promo/aldhanote-promo.webp",
+    imageAlt: { es: "Imagen promocional de AldhaNote con la lista de notas abierta en un teléfono", en: "AldhaNote promotional image showing the notes list on a phone" },
     summary: { es: "Aplicación móvil creada con React Native, presentada en la web anterior junto con un video y repositorio.", en: "A React Native mobile app listed on the previous portfolio with a video and repository." },
     legacyDescription: { es: "La descripción anterior la identificaba como app móvil React Native con integración de una REST API.", en: "The previous description identified it as a React Native mobile app integrated with a REST API." },
     stack: ["React Native", "REST API"],
@@ -291,8 +307,8 @@ export const projects: Project[] = [
     name: "Pokedex",
     category: { es: "Móvil · React Native Expo", en: "Mobile · React Native Expo" },
     status: { es: "Proyecto histórico · sin publicación confirmada", en: "Historical project · no confirmed release" },
-    image: "/projects/pokedex.webp",
-    imageAlt: { es: "Proyecto móvil Pokedex", en: "Pokedex mobile project" },
+    image: "/projects/promo/pokedex-mobile-promo.webp",
+    imageAlt: { es: "Imagen promocional de la Pokédex móvil con la lista de criaturas y una ficha abierta", en: "Mobile Pokédex promotional image showing the creature list and an open detail view" },
     summary: { es: "Pokédex móvil que consulta PokeAPI y guarda favoritos localmente.", en: "A mobile Pokédex that uses PokeAPI and saves favorites locally." },
     legacyDescription: { es: "La ficha anterior indicaba React Native Expo, PokeAPI y AsyncStorage; no afirmaba que estuviera publicada.", en: "The previous listing noted React Native Expo, PokeAPI and AsyncStorage; it did not claim a public release." },
     stack: ["React Native", "Expo", "PokeAPI", "AsyncStorage"],
@@ -305,10 +321,15 @@ export const projects: Project[] = [
     name: "SafeBite",
     category: { es: "Salud y alimentación · React Native", en: "Food & health · React Native" },
     status: { es: "Disponible en iOS y Android", en: "Available on iOS and Android" },
-    image: "/projects/safebite.jpg",
+    image: "/projects/promo/safebite-promo.webp",
+    screenshots: [
+      { src: "/projects/safebite/screenshots/01-aplv-guide.jpg", alt: { es: "Guía de información sobre APLV y señales de alerta en SafeBite", en: "SafeBite's APLV information guide and warning signs" }, caption: { es: "Información y guía rápida", en: "Information and quick guide" } },
+      { src: "/projects/safebite/screenshots/02-scan-history.jpg", alt: { es: "Historial de productos revisados con opción de guardar el historial al iniciar sesión", en: "History of reviewed products with an option to save it by signing in" }, caption: { es: "Historial de escaneos", en: "Scan history" } },
+      { src: "/projects/safebite/screenshots/03-scanner-home.jpg", alt: { es: "Inicio de SafeBite con acceso al escáner y al recordatorio de seguridad diaria", en: "SafeBite home with scanner access and a daily safety reminder" }, caption: { es: "Inicio y acceso al escáner", en: "Home and scanner entry point" } },
+    ],
     imageAlt: {
-      es: "SafeBite analiza una etiqueta y muestra información de ingredientes",
-      en: "SafeBite scanning a food label and showing ingredient information",
+      es: "Imagen promocional de SafeBite con un teléfono que muestra el escáner de etiquetas de alimentos",
+      en: "SafeBite promotional image with a phone showing the food-label scanner",
     },
     summary: {
       es: "Una app para revisar ingredientes desde el teléfono y ayudar a las personas a tomar decisiones informadas sobre alimentos.",
@@ -326,7 +347,7 @@ export const projects: Project[] = [
       es: "Desarrollo de producto móvil con React Native y Expo e integración de servicios para datos, sincronización y compras.",
       en: "Mobile product development with React Native and Expo, integrating services for data, sync and purchases.",
     },
-    stack: ["React Native", "Expo", "TypeScript", "Supabase", "Google ML Kit", "RevenueCat"],
+    stack: ["React Native", "Expo", "TypeScript", "Supabase", "Google ML Kit", "RevenueCat", "iOS", "Android"],
     highlights: {
       es: ["Lectura de etiquetas mediante OCR en el dispositivo", "Modo invitado para probar el escáner", "Historial sincronizado al usar una cuenta"],
       en: ["On-device OCR for ingredient labels", "Guest mode to try the scanner", "Synced scan history when using an account"],
@@ -345,6 +366,7 @@ export const projects: Project[] = [
         en: "It explains what the scanner can detect and its limits, provides privacy and support information, and links to the stores so people can understand the tool before installing it.",
       },
     },
+    relatedProjectSlug: "safebite-website",
     featured: true,
   },
   {
@@ -353,8 +375,22 @@ export const projects: Project[] = [
     name: "Nox Notes",
     category: { es: "Notas y escritura · React Native", en: "Notes & writing · React Native" },
     status: { es: "Android disponible · iOS en revisión", en: "Available on Android · iOS in review" },
-    image: "/projects/nox-notes.png",
-    imageAlt: { es: "Vista de Nox Notes en una tablet", en: "Nox Notes displayed on a tablet" },
+    image: "/projects/promo/nox-notes-promo.webp",
+    screenshots: [
+      { src: "/projects/nox-notes/screenshots/01-settings.jpg", alt: { es: "Ajustes de Nox Notes para elegir tema y textura de papel", en: "Nox Notes settings for choosing a theme and paper texture" }, caption: { es: "Temas y papel", en: "Themes and paper" } },
+      { src: "/projects/nox-notes/screenshots/02-theme-achievement.jpg", alt: { es: "Logro Paper Artist al cambiar el tema o la textura del papel", en: "Paper Artist achievement for changing the theme or paper texture" }, caption: { es: "Logros", en: "Achievements" } },
+      { src: "/projects/nox-notes/screenshots/03-wardrobe.jpg", alt: { es: "Armario para elegir aspectos de Nox", en: "Wardrobe for choosing Nox character skins" }, caption: { es: "Personalización de Nox", en: "Nox customization" } },
+      { src: "/projects/nox-notes/screenshots/04-tasks.jpg", alt: { es: "Lista de tareas con una tarea y el logro Tiny Plan", en: "Task list with one task and the Tiny Plan achievement" }, caption: { es: "Tareas y logros", en: "Tasks and achievements" } },
+      { src: "/projects/nox-notes/screenshots/05-streak.jpg", alt: { es: "Racha actual y calendario de escritura en Nox Path", en: "Current writing streak and calendar in Nox Path" }, caption: { es: "Racha de escritura", en: "Writing streak" } },
+      { src: "/projects/nox-notes/screenshots/06-first-note.jpg", alt: { es: "Inicio con un diario, una nota reciente y el logro First Thought", en: "Home screen with a journal, a recent note and the First Thought achievement" }, caption: { es: "Diarios y notas", en: "Journals and notes" } },
+      { src: "/projects/nox-notes/screenshots/07-note-editor.jpg", alt: { es: "Editor de notas con selector de diario y teclado abierto", en: "Note editor with a journal selector and keyboard open" }, caption: { es: "Escritura de una nota", en: "Writing a note" } },
+      { src: "/projects/nox-notes/screenshots/08-new-journal.jpg", alt: { es: "Ventana para crear un diario y elegir su color", en: "Dialog for creating a journal and choosing its color" }, caption: { es: "Crear un diario", en: "Creating a journal" } },
+      { src: "/projects/nox-notes/screenshots/09-daily-ritual.jpg", alt: { es: "Inicio de Nox Notes con registro del estado de ánimo y ritual diario", en: "Nox Notes home with a mood check-in and daily ritual" }, caption: { es: "Ritual diario", en: "Daily ritual" } },
+      { src: "/projects/nox-notes/screenshots/10-reminders.jpg", alt: { es: "Ajustes para activar recordatorios de racha y tareas pendientes", en: "Settings for streak and pending-task reminders" }, caption: { es: "Recordatorios", en: "Reminders" } },
+      { src: "/projects/nox-notes/screenshots/11-language-onboarding.jpg", alt: { es: "Onboarding para elegir inglés o español", en: "Onboarding screen to choose English or Spanish" }, caption: { es: "Idioma", en: "Language" } },
+      { src: "/projects/nox-notes/screenshots/12-nox-illustration.jpg", alt: { es: "Ilustración de Nox, la mascota de la app, en una biblioteca nocturna", en: "Illustration of Nox, the app mascot, in a night-time library" }, caption: { es: "Nox, la mascota", en: "Nox, the mascot" } },
+    ],
+    imageAlt: { es: "Imagen promocional de Nox Notes con la mascota junto a la pantalla de un diario en el teléfono", en: "Nox Notes promotional image with its mascot beside a phone showing a journal" },
     summary: {
       es: "Una app de notas que abre en modo invitado y permite empezar a escribir sin tener que crear una cuenta primero.",
       en: "A notes app that opens in guest mode so people can start writing without creating an account first.",
@@ -371,7 +407,7 @@ export const projects: Project[] = [
       es: "Desarrollo móvil con React Native y Expo, almacenamiento local, sincronización de cuenta y flujos de privacidad y seguridad.",
       en: "Mobile development with React Native and Expo, local storage, account sync, and privacy and security flows.",
     },
-    stack: ["React Native", "Expo", "SQLite", "Firebase", "RevenueCat"],
+    stack: ["React Native", "Expo", "SQLite", "Firebase", "RevenueCat", "iOS", "Android"],
     highlights: {
       es: ["Modo invitado desde el primer inicio", "Notas, diarios y tareas", "Temas, texturas y autenticación del dispositivo"],
       en: ["Guest mode from first launch", "Notes, journals and tasks", "Themes, paper textures and device authentication"],
@@ -390,6 +426,7 @@ export const projects: Project[] = [
         en: "It presents Nox’s calm writing approach, features and personalization, while bringing together help, privacy and download links.",
       },
     },
+    relatedProjectSlug: "nox-notes-website",
     featured: true,
   },
   {
@@ -429,9 +466,9 @@ export const projects: Project[] = [
     kind: "mobile",
     name: "GlowWords",
     category: { es: "Bienestar · Flutter", en: "Wellbeing · Flutter" },
-    status: { es: "En desarrollo · aún no publicado", en: "In development · not released yet" },
-    image: "/projects/glowwords.png",
-    imageAlt: { es: "Afirmación diaria de GlowWords", en: "GlowWords daily affirmation" },
+    status: { es: "En desarrollo · iOS y Android · aún no publicada", en: "In development · iOS & Android · not released yet" },
+    image: "/projects/promo/glowwords-promo.webp",
+    imageAlt: { es: "Imagen promocional de GlowWords con una tarjeta de afirmación en un teléfono, sobre nubes violetas", en: "GlowWords promotional image with an affirmation card on a phone against violet clouds" },
     summary: {
       es: "Una app de afirmaciones y citas en español e inglés, con categorías, favoritos, temas visuales y recordatorios.",
       en: "An affirmations and quotes app in English and Spanish, with categories, favorites, visual themes and reminders.",
@@ -448,7 +485,7 @@ export const projects: Project[] = [
       es: "Desarrollo de producto y cliente móvil con Flutter, Firebase y compras dentro de la app.",
       en: "Product and mobile client development with Flutter, Firebase and in-app purchases.",
     },
-    stack: ["Flutter", "Dart", "Firebase", "RevenueCat"],
+    stack: ["Flutter", "Dart", "Firebase", "RevenueCat", "iOS", "Android"],
     highlights: {
       es: ["Afirmaciones y citas por categorías", "Favoritos, frases propias y temas visuales", "Recordatorios configurables"],
       en: ["Affirmations and quotes by category", "Favorites, custom quotes and visual themes", "Configurable reminders"],
@@ -464,6 +501,7 @@ export const projects: Project[] = [
       },
     },
     links: [{ label: { es: "Landing de GlowWords", en: "GlowWords website" }, href: "https://glowwords-landing.vercel.app/" }],
+    relatedProjectSlug: "glowwords-website",
   },
   {
     slug: "pocketbudget-lab",

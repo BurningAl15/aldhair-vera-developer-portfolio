@@ -9,7 +9,7 @@ export function Header({ locale, alternateHref }: { locale: Locale; alternateHre
     <header className="site-header" lang={locale}>
       <a className="brand" href={isEnglish ? "/en/" : "/"} aria-label="Aldhair Vera — inicio">
         <span className="brand-mark">AV</span>
-        <span className="brand-name">Aldhair Vera<small>PRODUCT ENGINEERING</small></span>
+        <span className="brand-name">Aldhair Vera<small>SOFTWARE · PRODUCT ENGINEER</small></span>
       </a>
       <div className="header-right">
         <nav className="nav-links" aria-label={isEnglish ? "Main navigation" : "Navegación principal"}>
@@ -31,7 +31,7 @@ export function Footer({ locale }: { locale: Locale }) {
     <footer className="site-footer" lang={isEnglish ? "en" : "es"}>
       <a className="brand" href={isEnglish ? "/en/" : "/"}>
         <span className="brand-mark">AV</span>
-        <span className="brand-name">Aldhair Vera<small>PRODUCT ENGINEERING</small></span>
+        <span className="brand-name">Aldhair Vera<small>SOFTWARE · PRODUCT ENGINEER</small></span>
       </a>
       <div className="footer-social-profiles" aria-label={isEnglish ? "Social profiles" : "Perfiles en redes"}>
         {socialProfiles.map((profile) => <section className="footer-social-group" key={profile.label.es}>

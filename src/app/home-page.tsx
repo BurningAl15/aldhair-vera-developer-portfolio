@@ -137,9 +137,9 @@ function TechBadges({ items, locale, keyboardDetails = false }: { items: string[
 
 const copy = {
   es: {
-    eyebrow: "PRODUCT ENGINEERING · LIMA, PERÚ",
+    eyebrow: "SOFTWARE · PRODUCT ENGINEER · CHINCHA, PERÚ",
     headline: <>Hago que las ideas<br />se conviertan en <em>productos.</em></>,
-    intro: "Soy Aldhair Vera, desarrollador de producto. Diseño y construyo apps móviles y experiencias web, desde la primera decisión hasta su publicación.",
+    intro: "Soy Aldhair Vera, software engineer y product engineer. Diseño y desarrollo apps móviles y experiencias web, desde la definición inicial hasta su publicación.",
     work: "Ver proyectos", contact: "Hablemos", availability: "Disponible para oportunidades y proyectos seleccionados",
     showreel: "PRODUCTOS Y PROYECTOS", art: "IDEA → PRODUCTO → PRODUCCIÓN",
     workEyebrow: "TRABAJO SELECCIONADO", workTitle: "Apps y experiencias web, con su propósito claro.", workIntro: "Cada caso cuenta qué resuelve, por qué tomé ciertas decisiones y cómo se conecta con las personas que lo usan.",
@@ -185,9 +185,9 @@ const copy = {
     historyTitle: "Experiencia profesional", historyMore: "Más información",
   },
   en: {
-    eyebrow: "PRODUCT ENGINEERING · LIMA, PERU",
+    eyebrow: "SOFTWARE · PRODUCT ENGINEER · CHINCHA, PERU",
     headline: <>I turn ideas<br />into <em>real products.</em></>,
-    intro: "I’m Aldhair Vera, a product developer. I design and build mobile apps and web experiences, from the first product decision through release.",
+    intro: "I’m Aldhair Vera, a software engineer and product engineer. I design and build mobile apps and web experiences, from early product decisions through release.",
     work: "Explore my work", contact: "Let’s talk", availability: "Open to opportunities and selected projects",
     showreel: "PRODUCTS IN THE WILD", art: "IDEA → PRODUCT → RELEASE",
     workEyebrow: "SELECTED WORK", workTitle: "Mobile apps and web products, with a clear purpose.", workIntro: "Each case explains what it solves, why I made key product decisions, and how it reaches people.",
@@ -254,7 +254,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
     {items.map((project, index) => {
       const href = locale === "es" ? `/proyectos/${project.slug}/` : `/en/projects/${project.slug}/`;
       return <a className="project-card" href={href} key={project.slug}>
-        <div className="project-card-image">
+        <div className={`project-card-image${project.kind === "mobile" ? " project-card-image-mobile" : ""}`}>
           {project.image ? <Image src={project.image} alt={project.imageAlt[locale]} width={960} height={620} unoptimized /> : <div className="media-placeholder" aria-label={project.imageAlt[locale]}><span>{project.kind === "games" ? "GAMES · XR" : "WEB · LANDING"}</span><strong>{locale === "es" ? "Captura del proyecto pendiente" : "Project screenshot pending"}</strong></div>}
           <span className="project-number">0{index + 1} / 0{items.length}</span>
         </div>
@@ -411,7 +411,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
         </section>
 
         <section className="callout">
-          <div><h2>{t.contactTitle}</h2><p>{locale === "es" ? "Trabajo remoto · Lima, Perú" : "Remote work · Lima, Peru"}</p></div>
+          <div><h2>{t.contactTitle}</h2><p>{locale === "es" ? "Trabajo remoto · Chincha, Perú" : "Remote work · Chincha, Peru"}</p></div>
           <a className="button button-primary" href="#contact">{t.contactButton}<span aria-hidden="true">↓</span></a>
         </section>
         <ContactForm locale={locale} />

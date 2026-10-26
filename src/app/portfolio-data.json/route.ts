@@ -10,7 +10,7 @@ export function GET() {
     schemaVersion: 1,
     source: siteUrl,
     name: "Aldhair Vera",
-    location: "Lima, Peru",
+    location: "Chincha, Peru",
     locales: ["es", "en"],
     specialties,
     technologies,

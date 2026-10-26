@@ -4,7 +4,7 @@ import HomePage from "../home-page";
 export const metadata: Metadata = {
   title: "Apps móviles y productos web",
   description:
-    "Desarrollador de producto en Lima: apps iOS y Android, webapps y juegos. Mira qué construí, con qué tecnologías y cómo llegan a producción.",
+    "Ingeniero de software y de producto en Chincha: desarrollo apps iOS y Android, webapps y juegos, y llevo productos desde la idea hasta su publicación.",
   alternates: { canonical: "/", languages: { es: "/", en: "/en/" } },
   openGraph: {
     type: "website",
