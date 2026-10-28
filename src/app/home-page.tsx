@@ -28,7 +28,7 @@ const brandIconSlugs: Record<string, string> = {
   bootstrap: "bootstrap", sass: "sass", jquery: "jquery", "framer motion": "framer",
   express: "express", graphql: "graphql", csharp: "csharp", "c#": "csharp",
   "meta xr sdk": "meta", arfoundation: "unity", visionlib: "opencv", godot: "godot",
-  vite: "vite", pwa: "pwa", "unity webgl": "unity",
+  vite: "vite", pwa: "pwa", "unity webgl": "unity", electron: "electron", sharp: "sharp", ffmpeg: "ffmpeg",
   "tailwind css": "tailwindcss", mongodb: "mongodb", postgresql: "postgresql",
   javascript: "javascript", typescript: "typescript", react: "react", "react native": "react",
   unity: "unity", "node.js": "nodedotjs", nodejs: "nodedotjs", redux: "redux",
@@ -53,6 +53,9 @@ function technologyDescription(item: string, locale: Locale) {
     unity: { es: "Motor para crear videojuegos y experiencias interactivas 2D, 3D y XR", en: "Engine for building 2D, 3D and XR games and interactive experiences" },
     godot: { es: "Motor de videojuegos de código abierto para crear juegos 2D y 3D", en: "Open-source game engine for building 2D and 3D games" },
     vite: { es: "Herramienta de desarrollo y compilación para aplicaciones web", en: "Development and build tool for web applications" },
+    electron: { es: "Framework para crear aplicaciones de escritorio con tecnologías web", en: "Framework for building desktop apps with web technologies" },
+    sharp: { es: "Procesamiento rápido de imágenes en Node.js", en: "High-performance image processing for Node.js" },
+    ffmpeg: { es: "Herramienta para convertir y procesar audio y video", en: "Tool for converting and processing audio and video" },
     "c#": { es: "Lenguaje usado para programar en Unity", en: "Programming language commonly used with Unity" },
     "node.js": { es: "Entorno JavaScript para servicios backend", en: "JavaScript runtime for backend services" },
     "three.js": { es: "Biblioteca 3D para gráficos en navegador", en: "3D library for browser graphics" },
@@ -139,17 +142,17 @@ const copy = {
   es: {
     eyebrow: "SOFTWARE · PRODUCT ENGINEER · CHINCHA, PERÚ",
     headline: <>Hago que las ideas<br />se conviertan en <em>productos.</em></>,
-    intro: "Soy Aldhair Vera, software engineer y product engineer. Diseño y desarrollo apps móviles y experiencias web, desde la definición inicial hasta su publicación.",
+    intro: "Soy Aldhair Vera, software engineer y product engineer. Diseño y desarrollo productos web, móviles y de escritorio, desde la definición inicial hasta su publicación.",
     work: "Ver proyectos", contact: "Hablemos", availability: "Disponible para oportunidades y proyectos seleccionados",
     showreel: "PRODUCTOS Y PROYECTOS", art: "IDEA → PRODUCTO → PRODUCCIÓN",
-    workEyebrow: "TRABAJO SELECCIONADO", workTitle: "Apps y experiencias web, con su propósito claro.", workIntro: "Cada caso cuenta qué resuelve, por qué tomé ciertas decisiones y cómo se conecta con las personas que lo usan.",
+    workEyebrow: "TRABAJO SELECCIONADO", workTitle: "Apps, productos web y herramientas de escritorio.", workIntro: "Cada caso cuenta qué resuelve, por qué tomé ciertas decisiones y cómo se conecta con las personas que lo usan.",
     mobileTitle: "Apps móviles", mobileIntro: "Productos para iOS y Android: qué necesidad atienden y cómo funcionan por dentro.",
     webTitle: "Webs y webapps", webIntro: "Sitios y herramientas web, desde páginas de producto hasta aplicaciones interactivas.",
     gamesTitle: "Juegos, VR y XR", gamesIntro: "Los casos completos están en mi portfolio especializado. Aquí muestro cómo encaja ese perfil con mi experiencia profesional.",
     pathWebMobile: "WEB + MOBILE", pathGamesXR: "GAMES + VR / XR",
     webMobilePathTitle: "Web y mobile", gamesXRPathTitle: "Juegos, VR y XR",
-    webMobilePathIntro: "Dos especialidades de producto: sitios y aplicaciones web, además de apps para iOS y Android.", gamesXRPathIntro: "Los proyectos se mantienen en su sitio propio. Aquí quedan la experiencia, formación y recomendaciones de esta trayectoria.",
-    mobileProjectsTitle: "Aplicaciones móviles", webProjectsTitle: "Web y webapps", gamesPortfolioLabel: "Mi portfolio de videojuegos y XR", visitGamesPortfolio: "Visitar portfolio de videojuegos y XR",
+    webMobilePathIntro: "Sitios y aplicaciones web, productos para iOS y Android, y herramientas de escritorio.", gamesXRPathIntro: "Los proyectos se mantienen en su sitio propio. Aquí quedan la experiencia, formación y recomendaciones de esta trayectoria.",
+    mobileProjectsTitle: "Aplicaciones móviles", webProjectsTitle: "Web y webapps", desktopProjectsTitle: "Apps de escritorio", gamesPortfolioLabel: "Mi portfolio de videojuegos y XR", visitGamesPortfolio: "Visitar portfolio de videojuegos y XR",
     landingProjectsTitle: "Landings", webAppsTitle: "Web apps y herramientas", miniAppsTitle: "Mini apps", browserGamesTitle: "Juegos web",
     gamesPortfolioTech: "Unity · C# · Godot · WebGL · VR / XR",
     experienceLabel: "Experiencia", educationLabel: "Formación", recommendationsLabel: "Recomendaciones",
@@ -187,17 +190,17 @@ const copy = {
   en: {
     eyebrow: "SOFTWARE · PRODUCT ENGINEER · CHINCHA, PERU",
     headline: <>I turn ideas<br />into <em>real products.</em></>,
-    intro: "I’m Aldhair Vera, a software engineer and product engineer. I design and build mobile apps and web experiences, from early product decisions through release.",
+    intro: "I’m Aldhair Vera, a software engineer and product engineer. I design and build web, mobile and desktop products, from early product decisions through release.",
     work: "Explore my work", contact: "Let’s talk", availability: "Open to opportunities and selected projects",
     showreel: "PRODUCTS IN THE WILD", art: "IDEA → PRODUCT → RELEASE",
-    workEyebrow: "SELECTED WORK", workTitle: "Mobile apps and web products, with a clear purpose.", workIntro: "Each case explains what it solves, why I made key product decisions, and how it reaches people.",
+    workEyebrow: "SELECTED WORK", workTitle: "Mobile apps, web products and desktop tools.", workIntro: "Each case explains what it solves, why I made key product decisions, and how it reaches people.",
     mobileTitle: "Mobile apps", mobileIntro: "Products for iOS and Android: the needs they address and how they work under the hood.",
     webTitle: "Websites and web apps", webIntro: "Sites and web tools, from product pages to interactive applications.",
     gamesTitle: "Games, VR and XR", gamesIntro: "Full case studies live in my specialist portfolio. Here I show how that profile fits my professional experience.",
     pathWebMobile: "WEB + MOBILE", pathGamesXR: "GAMES + VR / XR",
     webMobilePathTitle: "Web and mobile", gamesXRPathTitle: "Games, VR and XR",
-    webMobilePathIntro: "Two product specialties: websites and web apps, plus iOS and Android applications.", gamesXRPathIntro: "Game projects stay on their dedicated site. This profile brings together the related experience, education and recommendations.",
-    mobileProjectsTitle: "Mobile apps", webProjectsTitle: "Websites and web apps", gamesPortfolioLabel: "My games and XR portfolio", visitGamesPortfolio: "Visit games and XR portfolio",
+    webMobilePathIntro: "Websites and web apps, products for iOS and Android, and desktop tools.", gamesXRPathIntro: "Game projects stay on their dedicated site. This profile brings together the related experience, education and recommendations.",
+    mobileProjectsTitle: "Mobile apps", webProjectsTitle: "Websites and web apps", desktopProjectsTitle: "Desktop apps", gamesPortfolioLabel: "My games and XR portfolio", visitGamesPortfolio: "Visit games and XR portfolio",
     landingProjectsTitle: "Landing pages", webAppsTitle: "Web apps and tools", miniAppsTitle: "Mini apps", browserGamesTitle: "Browser games",
     gamesPortfolioTech: "Unity · C# · Godot · WebGL · VR / XR",
     experienceLabel: "Experience", educationLabel: "Education", recommendationsLabel: "Recommendations",
@@ -238,6 +241,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
   const t = copy[locale] as typeof copy.es;
   const mobileProjects = projects.filter((project) => project.kind === "mobile");
   const webProjects = projects.filter((project) => project.kind === "web");
+  const desktopProjects = projects.filter((project) => project.kind === "desktop");
   const landingProjects = webProjects.filter((project) => project.webType === "landing");
   const webAppProjects = webProjects.filter((project) => !project.webType || project.webType === "web-app");
   const miniAppProjects = webProjects.filter((project) => project.webType === "mini-app");
@@ -255,7 +259,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       const href = locale === "es" ? `/proyectos/${project.slug}/` : `/en/projects/${project.slug}/`;
       return <a className="project-card" href={href} key={project.slug}>
         <div className={`project-card-image${project.kind === "mobile" ? " project-card-image-mobile" : ""}`}>
-          {project.image ? <Image src={project.image} alt={project.imageAlt[locale]} width={960} height={620} unoptimized /> : <div className="media-placeholder" aria-label={project.imageAlt[locale]}><span>{project.kind === "games" ? "GAMES · XR" : "WEB · LANDING"}</span><strong>{locale === "es" ? "Captura del proyecto pendiente" : "Project screenshot pending"}</strong></div>}
+          {project.image ? <Image src={project.image} alt={project.imageAlt[locale]} width={960} height={620} unoptimized /> : <div className="media-placeholder" aria-label={project.imageAlt[locale]}><span>{project.kind === "games" ? "GAMES · XR" : project.kind === "desktop" ? "DESKTOP APP" : "WEB · LANDING"}</span><strong>{locale === "es" ? "Captura del proyecto pendiente" : "Project screenshot pending"}</strong></div>}
           <span className="project-number">0{index + 1} / 0{items.length}</span>
         </div>
         <div className="project-card-body">
@@ -274,7 +278,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
     {items.map((project) => {
       const href = locale === "es" ? `/proyectos/${project.slug}/` : `/en/projects/${project.slug}/`;
       return <a className="archive-card" href={href} key={project.slug}>
-        {project.image ? <Image src={project.image} alt={project.imageAlt[locale]} width={180} height={140} unoptimized /> : <div className="archive-image-placeholder" aria-label={project.imageAlt[locale]}><span>WEB</span><small>{locale === "es" ? "Captura pendiente" : "Screenshot pending"}</small></div>}
+        {project.image ? <Image src={project.image} alt={project.imageAlt[locale]} width={180} height={140} unoptimized /> : <div className="archive-image-placeholder" aria-label={project.imageAlt[locale]}><span>{project.kind === "desktop" ? "DESKTOP" : "WEB"}</span><small>{locale === "es" ? "Captura pendiente" : "Screenshot pending"}</small></div>}
         <div><span className="archive-meta">{project.category[locale]}</span><h3>{project.name}</h3><p>{project.summary[locale]}</p><TechBadges items={project.stack} locale={locale} /><span className="archive-link">{t.more} ↗</span></div>
       </a>;
     })}
@@ -318,6 +322,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
             <div className="pathway-subcategory"><div className="category-heading"><h4>{t.webAppsTitle}</h4></div>{renderCards(featuredWebApps)}{renderArchive(webAppArchive)}</div>
             <div className="pathway-subcategory"><div className="category-heading"><h4>{t.miniAppsTitle}</h4></div>{renderArchive(miniAppProjects)}</div>
             <div className="pathway-subcategory"><div className="category-heading"><h4>{t.browserGamesTitle}</h4></div>{renderArchive(browserGameProjects)}</div>
+            <div className="pathway-subcategory"><div className="category-heading"><h4>{t.desktopProjectsTitle}</h4></div>{renderCards(desktopProjects.filter((project) => project.featured))}{renderArchive(desktopProjects.filter((project) => !project.featured))}</div>
           </section>
           <section className="work-category pathway-section" id="games-xr-path" aria-labelledby="games-xr-title">
             <div className="category-heading"><span className="pathway-kicker">02 / {t.pathGamesXR}</span><h3 id="games-xr-title">{t.gamesXRPathTitle}</h3><p>{t.gamesXRPathIntro}</p></div>

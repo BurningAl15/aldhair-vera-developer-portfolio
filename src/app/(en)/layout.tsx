@@ -6,11 +6,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aldhairvera-portfol
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Aldhair Vera — Product development for mobile and web",
+    default: "Aldhair Vera — Software engineer · web, mobile and desktop",
     template: "%s | Aldhair Vera",
   },
   description:
-    "Aldhair Vera designs and builds mobile and web products with Flutter, React Native and Next.js.",
+    "Aldhair Vera is a software and product engineer in Chincha, Peru, building web, mobile and desktop products.",
   applicationName: "Aldhair Vera — Portfolio",
   authors: [{ name: "Aldhair Vera", url: siteUrl }],
   creator: "Aldhair Vera",
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Aldhair Vera — Portfolio",
     locale: "en_US",
-    title: "Aldhair Vera — Product development for mobile and web",
+    title: "Aldhair Vera — Software engineer · web, mobile and desktop",
     description: "Digital products built from the initial idea through release.",
     images: [{ url: "/projects/cozy-pomodoro.jpeg", width: 1320, height: 2868, alt: "Cozy Pomodoro" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aldhair Vera — Product development for mobile and web",
-    description: "Mobile apps and web products built to solve real problems.",
+    title: "Aldhair Vera — Software engineer · web, mobile and desktop",
+    description: "Mobile apps, web products and desktop tools built to solve real problems.",
     images: ["/projects/cozy-pomodoro.jpeg"],
   },
   alternates: { canonical: "/en/" },

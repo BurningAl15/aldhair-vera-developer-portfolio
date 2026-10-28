@@ -1,5 +1,5 @@
 export type Locale = "es" | "en";
-export type ProjectKind = "mobile" | "web" | "games";
+export type ProjectKind = "mobile" | "web" | "desktop" | "games";
 export type WebProjectType = "landing" | "web-app" | "mini-app" | "game";
 
 export type ProductWebsite = {
@@ -12,6 +12,8 @@ export type ProductWebsite = {
 
 export type ProjectScreenshot = {
   src: string;
+  width?: number;
+  height?: number;
   alt: { es: string; en: string };
   caption: { es: string; en: string };
 };
@@ -146,19 +148,58 @@ export const projects: Project[] = [
     kind: "web",
     name: "Fast Task Manager",
     category: { es: "Productividad · Web · PWA", en: "Productivity · Web · PWA" },
-    status: { es: "Proyecto web personal", en: "Personal web project" },
+    status: { es: "Demo pública · proyecto aislado", en: "Public demo · isolated project" },
     image: "/projects/fast-task-manager.png",
     imageAlt: { es: "Captura del administrador de tareas Fast Task Manager", en: "Fast Task Manager project screenshot" },
     summary: {
-      es: "Un gestor de tareas web centrado en el teclado, con organización por grupos y flujos rápidos para desglosar trabajo.",
-      en: "A keyboard-first web task manager with grouped organization and fast workflows for breaking down work.",
+      es: "Un gestor web para convertir proyectos y pendientes en trabajo ordenado, con tareas, subtareas y seguimiento del avance.",
+      en: "A web task manager for turning projects and to-dos into organized work, with tasks, subtasks and progress tracking.",
     },
-    challenge: { es: "Organizar tareas y subtareas con poco esfuerzo y sin perder el contexto del trabajo.", en: "Organizing tasks and subtasks with little friction while keeping work context." },
-    approach: { es: "La ficha anterior describe una interfaz web con paleta de comandos, arrastrar y soltar, numeración de tickets, registros de contexto y grupos plegables.", en: "The previous portfolio describes a web interface with a command palette, drag and drop, ticket numbering, context logs, and collapsible groups." },
-    contribution: { es: "Diseño e implementación frontend del producto.", en: "Product design and frontend implementation." },
+    challenge: { es: "Mantener el contexto y el ritmo al dividir proyectos en tareas pequeñas, sin que organizar el trabajo se convierta en otra tarea más.", en: "Preserve context and momentum while breaking projects into small tasks, without making organization another task in itself." },
+    approach: { es: "La interfaz organiza proyectos, tareas, sprints y versiones, mientras Firebase guarda el espacio de trabajo. La demo pública corre en un proyecto Firebase separado del entorno privado y debe usarse solo con información ficticia.", en: "The interface organizes projects, tasks, sprints and releases, while Firebase stores the workspace. The public demo runs in a Firebase project separate from the private environment and should only be used with fictional information." },
+    contribution: { es: "Diseño y desarrollo de producto: interfaz, flujos de tareas e integración con Firebase.", en: "Product design and development: interface, task workflows and Firebase integration." },
     stack: ["Next.js", "Firebase", "Tailwind CSS", "PWA"],
-    highlights: { es: ["Flujo de trabajo con teclado", "Desglose automático de subtareas", "Notificaciones y grupos plegables"], en: ["Keyboard-focused workflow", "Automatic subtask parsing", "Notifications and collapsible groups"] },
-    links: [{ label: { es: "Abrir proyecto", en: "Open project" }, href: "https://fast-task-manager.netlify.app" }],
+    highlights: { es: ["Proyectos, tareas, sprints y versiones", "Espacio de trabajo persistido con Firebase", "Demo pública aislada para explorar el flujo"], en: ["Projects, tasks, sprints and releases", "Firebase-backed workspace persistence", "Isolated public demo to explore the workflow"] },
+    links: [{ label: { es: "Probar demo", en: "Try the demo" }, href: "https://fast-task-manager-demo.vercel.app/" }],
+    featured: true,
+  },
+  {
+    slug: "image-prep",
+    kind: "desktop",
+    name: "Aldha's Media Toolkit",
+    category: { es: "Herramientas de escritorio · Electron", en: "Desktop media tools · Electron" },
+    status: { es: "En desarrollo · macOS arm64 sin firma ni notarización", en: "In development · macOS arm64, unsigned and not notarized" },
+    image: "/projects/aldhas-media-toolkit/screenshots/images-workspace.webp",
+    imageAlt: { es: "Espacio de trabajo de Aldha's Media Toolkit para preparar imágenes y archivos multimedia", en: "Aldha's Media Toolkit workspace for preparing images and media files" },
+    screenshots: [
+      { src: "/projects/aldhas-media-toolkit/screenshots/images-workspace.webp", width: 1800, height: 1200, alt: { es: "Espacio de trabajo con herramientas para preparar imágenes y otros medios", en: "Workspace with tools for preparing images and other media" }, caption: { es: "Herramientas de medios en un solo espacio", en: "Media tools in one workspace" } },
+      { src: "/projects/aldhas-media-toolkit/screenshots/image-crop-editor.webp", width: 1800, height: 1200, alt: { es: "Editor de recorte de imágenes con vista previa y controles de encuadre", en: "Image crop editor with preview and framing controls" }, caption: { es: "Recorte y encuadre de imágenes", en: "Image cropping and framing" } },
+      { src: "/projects/aldhas-media-toolkit/screenshots/video-vertical-export.webp", width: 1800, height: 1200, alt: { es: "Exportación de video con formato vertical y ajustes de salida", en: "Video export with a vertical format and output settings" }, caption: { es: "Exportación de video vertical", en: "Vertical video export" } },
+      { src: "/projects/aldhas-media-toolkit/screenshots/video-crop-preview.webp", width: 1800, height: 1200, alt: { es: "Vista previa para encuadrar y posicionar el recorte de un video", en: "Preview for framing and positioning a video crop" }, caption: { es: "Ajuste del encuadre de video", en: "Video crop positioning" } },
+      { src: "/projects/aldhas-media-toolkit/screenshots/base64-video-to-text.webp", width: 1800, height: 1200, alt: { es: "Herramienta local para convertir video a texto Base64", en: "Local tool for converting video to Base64 text" }, caption: { es: "Conversión de medios a Base64", en: "Media to Base64 conversion" } },
+    ],
+    summary: {
+      es: "Una app de escritorio local-first para preparar imágenes y trabajar con GIF, video, audio, Base64 y archivos protegidos. Antes se llamaba Image Prep.",
+      en: "A local-first desktop app for preparing images and working with GIFs, video, audio, Base64 and protected archives. Formerly called Image Prep.",
+    },
+    challenge: {
+      es: "Preparar recursos visuales y de audio suele repartir el trabajo entre varias herramientas. La app reúne conversiones por lotes y utilidades de medios en un mismo flujo local, sin subir los archivos del usuario.",
+      en: "Preparing visual and audio assets often means moving between several tools. The app brings batch conversions and media utilities into one local workflow without uploading users' files.",
+    },
+    approach: {
+      es: "Electron mantiene el acceso a archivos y el procesamiento pesado en el proceso principal; React y TypeScript presentan los controles. Sharp trabaja imágenes, FFmpeg convierte medios, y Whisper.cpp permite transcribir voz localmente al configurar whisper-cli y un modelo.",
+      en: "Electron keeps file access and heavy processing in the main process, while React and TypeScript power the interface. Sharp handles images, FFmpeg converts media, and Whisper.cpp can transcribe speech locally when whisper-cli and a model are configured.",
+    },
+    contribution: {
+      es: "Diseñé y desarrollé la app de escritorio, sus flujos de procesamiento local y el empaquetado para macOS.",
+      en: "I designed and built the desktop app, its local media workflows, and the macOS packaging.",
+    },
+    stack: ["Electron", "React", "TypeScript", "Vite", "Sharp", "FFmpeg", "Whisper.cpp"],
+    highlights: {
+      es: ["Redimensiona, recorta, optimiza y quita fondos a imágenes por lotes; también crea GIF y convierte video y audio", "Extrae fotogramas y transcribe voz localmente; no incluye OCR", "Codifica o decodifica medios Base64 y crea archivos SecurePack con AES-256-GCM", "El video se exporta completo: todavía no permite recortar un segmento por inicio y fin"],
+      en: ["Batch-resizes, crops, optimizes and removes image backgrounds; also creates GIFs and converts video and audio", "Extracts video frames and transcribes speech locally; OCR is not included", "Encodes or decodes Base64 media and creates SecurePack archives with AES-256-GCM", "Video exports the full source; trimming a start/end segment is not available yet"],
+    },
+    links: [{ label: { es: "Landing del producto", en: "Product website" }, href: "https://burningal15.github.io/aldhas-media-toolkit/" }],
     featured: true,
   },
   {

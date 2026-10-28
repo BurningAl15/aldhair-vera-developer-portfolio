@@ -24,3 +24,17 @@ Keep app screenshots separate from landing captures. Use the user's original scr
 ## Adding files
 
 When replacing a capture, keep the matching website project's `image` field and its mobile project's `productWebsite.image` pointed at `/projects/landing-previews/<filename>`. Keep the mobile project's own `image` field for the app itself. Update descriptive localized alt text if the visual changes.
+
+## Aldha's Media Toolkit desktop captures
+
+Desktop app captures saved on 2026-10-28 as optimized WebP files in `public/projects/aldhas-media-toolkit/screenshots/`:
+
+| File | Content |
+| --- | --- |
+| `images-workspace.webp` | Image workspace with an image loaded and an Instagram post preset selected. |
+| `image-crop-editor.webp` | Vertical story crop preview with draggable positioning and focus controls. |
+| `video-vertical-export.webp` | Video conversion controls configured for TikTok, Reels, and Shorts (vertical 9:16). |
+| `video-crop-preview.webp` | Video crop preview with the 9:16 frame and position controls. |
+| `base64-video-to-text.webp` | Base64 tool ready to encode a video file as text. |
+
+The app captures use temporary synthetic media for visual context. The source image and video files and any Base64 payload remain outside the portfolio repository; only the screenshots are included.

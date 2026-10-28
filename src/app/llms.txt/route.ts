@@ -10,9 +10,9 @@ export function GET() {
     .map((project) => `- [${project.name}](${siteUrl}/en/projects/${project.slug}/): ${project.summary.en}`)
     .join("\n");
 
-  const body = `# Aldhair Vera — Mobile and web product portfolio
+  const body = `# Aldhair Vera — Software engineering portfolio
 
-Public, bilingual information about Aldhair Vera's mobile apps, web products, professional experience and education. Use the published pages as the source for factual claims; verify dates and project status before preparing a CV or job application.
+Public, bilingual information about Aldhair Vera's mobile apps, web products, desktop tools, professional experience and education. Use the published pages as the source for factual claims; verify dates and project status before preparing a CV or job application.
 
 ## Main pages
 

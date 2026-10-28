@@ -17,8 +17,8 @@ export default function ProjectPage({ slug, locale }: { slug: string; locale: Lo
   const relatedAction = project.kind === "mobile" ? t.viewLanding : t.viewProduct;
   const relatedCases = projects.filter((item) => item.kind === project.kind);
   const index = relatedCases.findIndex((item) => item.slug === project.slug);
-  const previous = relatedCases[(index - 1 + relatedCases.length) % relatedCases.length];
-  const next = relatedCases[(index + 1) % relatedCases.length];
+  const previous = relatedCases.length > 1 ? relatedCases[(index - 1 + relatedCases.length) % relatedCases.length] : undefined;
+  const next = relatedCases.length > 1 ? relatedCases[(index + 1) % relatedCases.length] : undefined;
   const href = (targetSlug: string) => locale === "es" ? `/proyectos/${targetSlug}/` : `/en/projects/${targetSlug}/`;
   const languageSummary = project.languages && (locale === "es"
     ? `${project.languages.es.length} idiomas: ${project.languages.es.slice(0, -1).join(", ")}${project.languages.es.length > 1 ? " e " : ""}${project.languages.es[project.languages.es.length - 1]}`
@@ -32,7 +32,7 @@ export default function ProjectPage({ slug, locale }: { slug: string; locale: Lo
           <p className="eyebrow" style={{ marginTop: 34 }}>{project.category[locale]}</p>
           <h1>{project.name}</h1>
           <p className="lead">{project.summary[locale]}</p>
-          {project.image ? <ZoomableProjectImage className={`project-cover${project.kind === "mobile" ? " project-cover-mobile" : ""}`} src={project.image} alt={project.imageAlt[locale]} width={project.kind === "mobile" ? 591 : 1200} height={project.kind === "mobile" ? 1280 : 760} priority /> : <div className="project-cover-placeholder" aria-label={project.imageAlt[locale]}><span>WEB · LANDING</span><strong>{locale === "es" ? "Captura real pendiente" : "Real website screenshot pending"}</strong></div>}
+          {project.image ? <ZoomableProjectImage className={`project-cover${project.kind === "mobile" ? " project-cover-mobile" : project.kind === "desktop" ? " project-cover-desktop" : ""}`} src={project.image} alt={project.imageAlt[locale]} width={project.kind === "mobile" ? 591 : project.kind === "desktop" ? 1800 : 1200} height={project.kind === "mobile" ? 1280 : project.kind === "desktop" ? 1200 : 760} priority /> : <div className="project-cover-placeholder" aria-label={project.imageAlt[locale]}><span>{project.kind === "desktop" ? "DESKTOP APP" : "WEB · LANDING"}</span><strong>{locale === "es" ? "Captura real pendiente" : "Real website screenshot pending"}</strong></div>}
           <div className="project-facts">
             <div className="project-fact"><span>{t.category}</span><strong>{project.category[locale]}</strong></div>
             <div className="project-fact"><span>{t.status}</span><strong>{project.status[locale]}</strong></div>
@@ -43,8 +43,8 @@ export default function ProjectPage({ slug, locale }: { slug: string; locale: Lo
         {project.screenshots?.length ? <section className="project-screenshots" aria-labelledby="project-screenshots-title">
           <h2 id="project-screenshots-title">{t.screenshots}</h2>
           <div className="project-screenshot-grid">
-            {project.screenshots.map((screenshot) => <figure className="project-screenshot" key={screenshot.src}>
-              <ZoomableProjectImage className="project-screenshot-image" src={screenshot.src} alt={screenshot.alt[locale]} width={591} height={1280} />
+            {project.screenshots.filter((screenshot) => screenshot.src !== project.image).map((screenshot) => <figure className="project-screenshot" key={screenshot.src}>
+              <ZoomableProjectImage className={`project-screenshot-image${project.kind === "desktop" ? " project-screenshot-image-desktop" : ""}`} src={screenshot.src} alt={screenshot.alt[locale]} width={screenshot.width ?? 591} height={screenshot.height ?? 1280} />
               <figcaption>{screenshot.caption[locale]}</figcaption>
             </figure>)}
           </div>
@@ -68,10 +68,10 @@ export default function ProjectPage({ slug, locale }: { slug: string; locale: Lo
             {project.approach && <section><h2>{t.approach}</h2><p>{project.approach[locale]}</p></section>}
             {project.highlights && <section><h2>{t.work}</h2><ul>{project.highlights[locale].map((item) => <li key={item}>{item}</li>)}</ul></section>}
             {project.legacyDescription && <section className="legacy-note"><p>{project.legacyDescription[locale]}</p></section>}
-            <nav className="case-nav" aria-label={locale === "es" ? "Otros casos" : "Other case studies"}>
+            {previous && next && <nav className="case-nav" aria-label={locale === "es" ? "Otros casos" : "Other case studies"}>
               <a href={href(previous.slug)}>{t.previous}: {previous.name}</a>
               <a href={href(next.slug)}>{t.next}: {next.name}</a>
-            </nav>
+            </nav>}
           </article>
           <aside className="case-aside">
             <h2>{t.stack}</h2>
